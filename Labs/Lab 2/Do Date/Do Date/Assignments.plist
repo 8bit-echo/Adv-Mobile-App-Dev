@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Design Seminar</key>
+	<array>
+		<string>Empathy - Observe Space</string>
+	</array>
+	<key>3D Modeling</key>
+	<array>
+		<string>Bouncing Ball with String Animation</string>
+		<string>Make a Personal Logo</string>
+	</array>
+	<key>Object</key>
+	<array>
+		<string>Protoype Smart Mirror</string>
+		<string>Proof Of Concept</string>
+	</array>
+	<key>Design Studio</key>
+	<array>
+		<string>Prototype Display Box</string>
+		<string>Expo Project Concept</string>
+	</array>
+	<key>Advanced Mobile App Dev</key>
+	<array>
+		<string>This Lab</string>
+	</array>
+</dict>
+</plist>
