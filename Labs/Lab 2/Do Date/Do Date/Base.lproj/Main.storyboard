@@ -123,13 +123,13 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="r34-vn-yXf">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="w9h-Ef-gQt" kind="unwind" unwindAction="unwindSegue:" id="MhX-UM-jYx"/>
+                                                <segue destination="w9h-Ef-gQt" kind="unwind" identifier="cancelSegue" unwindAction="unwindSegue:" id="I1i-S1-QCb"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="J1B-2X-nRC">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="w9h-Ef-gQt" kind="unwind" unwindAction="unwindSegue:" id="gnv-9A-bJh"/>
+                                                <segue destination="w9h-Ef-gQt" kind="unwind" identifier="saveSegue" unwindAction="unwindSegue:" id="9FY-y3-Tr1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

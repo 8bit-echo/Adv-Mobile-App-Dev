@@ -6,6 +6,7 @@ class AddNewViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var assignmentTextField: UITextField!
     @IBOutlet weak var classTextField: UITextField!
+    var addedAssignment = String()
     
 
     
@@ -27,8 +28,12 @@ class AddNewViewController: UIViewController, UITextFieldDelegate {
     
 
         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            
+            if segue.identifier == "saveSegue"{
+                if ((assignmentTextField.text?.isEmpty) == false){
+                    addedAssignment = assignmentTextField.text!
+                }
+            }
     }
 
 }

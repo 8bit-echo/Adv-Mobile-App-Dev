@@ -12,7 +12,16 @@ class DoDateViewController: UIViewController, UITableViewDataSource, UITableView
     
      
     
-   @IBAction func unwindSegue(segue: UIStoryboardSegue){}
+   @IBAction func unwindSegue(segue: UIStoryboardSegue){
+    if segue.identifier == "saveSegue"{
+            let source = segue.sourceViewController as! AddNewViewController
+        if ((source.addedAssignment.isEmpty) == false){
+            classes.append(source.addedAssignment)
+            tableView.reloadData()
+        }
+    }
+    
+    }
     
     
     //Required methods for UITableViewDataSource
