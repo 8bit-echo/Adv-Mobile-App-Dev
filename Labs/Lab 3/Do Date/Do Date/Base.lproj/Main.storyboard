@@ -77,13 +77,12 @@
                                     <navigationItem title="Add New" id="CiR-TB-nfB">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ObW-yn-wWC">
                                             <connections>
-                                                <segue destination="IQl-Vr-RLI" kind="unwind" unwindAction="unwindSegue:" id="CLo-KD-rrd"/>
+                                                <segue destination="IQl-Vr-RLI" kind="unwind" identifier="cancelSegue" unwindAction="unwindSegue:" id="MOh-1j-3zI"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" tag="1" systemItem="save" id="MM4-tf-jt2">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MM4-tf-jt2">
                                             <connections>
-                                                <action selector="saveEntries:" destination="eeS-Ar-dUw" id="IMO-KR-Meg"/>
-                                                <segue destination="IQl-Vr-RLI" kind="unwind" unwindAction="unwindSegue:" id="JXU-YM-RWP"/>
+                                                <segue destination="IQl-Vr-RLI" kind="unwind" identifier="saveSegue" unwindAction="unwindSegue:" id="ui3-dc-pp5"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
