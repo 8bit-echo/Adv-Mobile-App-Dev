@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>heroes</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Batman</string>
+			<key>url</key>
+			<string>http://dc.wikia.com/wiki/Batman</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Superman</string>
+			<key>url</key>
+			<string>http://dc.wikia.com/wiki/Superman</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Wonder Woman</string>
+			<key>url</key>
+			<string>http://dc.wikia.com/wiki/Wonder_Woman</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>The Green Lantern</string>
+			<key>url</key>
+			<string>http://dc.wikia.com/wiki/Green_Lantern</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>The Flash</string>
+			<key>url</key>
+			<string>http://dc.wikia.com/wiki/Flash</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Aquaman</string>
+			<key>url</key>
+			<string>http://dc.wikia.com/wiki/Portal:Aquaman</string>
+		</dict>
+	</array>
+</dict>
+</plist>
