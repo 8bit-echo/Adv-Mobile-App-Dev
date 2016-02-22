@@ -18,16 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1G-5h-X18">
-                                <rect key="frame" x="0.0" y="99" width="600" height="501"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a DC hero from the list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySk-rW-zyM">
                                 <rect key="frame" x="90" y="70" width="420" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="lCO-2H-CaX"/>
-                                    <constraint firstAttribute="width" constant="420" id="zEd-8m-roQ"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,20 +27,24 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2eL-Tb-u8j">
                                 <rect key="frame" x="20" y="72" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="IpO-iR-ZCw"/>
-                                    <constraint firstAttribute="width" constant="20" id="o7y-7T-4G5"/>
+                                    <constraint firstAttribute="width" constant="20" id="7y2-gx-SDJ"/>
+                                    <constraint firstAttribute="height" constant="20" id="Jj8-u3-z43"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1G-5h-X18">
+                                <rect key="frame" x="0.0" y="99" width="600" height="501"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="k1G-5h-X18" firstAttribute="top" secondItem="2eL-Tb-u8j" secondAttribute="bottom" constant="7" id="3eC-3h-ZpS"/>
-                            <constraint firstItem="2eL-Tb-u8j" firstAttribute="top" secondItem="CpK-rJ-T9f" secondAttribute="bottom" constant="8" symbolic="YES" id="3nW-ts-tTo"/>
-                            <constraint firstItem="ySk-rW-zyM" firstAttribute="top" secondItem="CpK-rJ-T9f" secondAttribute="bottom" constant="6" id="BgY-cE-C5U"/>
-                            <constraint firstItem="ySk-rW-zyM" firstAttribute="centerX" secondItem="qLt-Rt-JZv" secondAttribute="centerX" id="DHT-C2-SEP"/>
-                            <constraint firstItem="ySk-rW-zyM" firstAttribute="leading" secondItem="2eL-Tb-u8j" secondAttribute="trailing" constant="50" id="E6v-Ro-hw1"/>
+                            <constraint firstItem="k1G-5h-X18" firstAttribute="top" secondItem="2eL-Tb-u8j" secondAttribute="bottom" constant="7" id="4nl-GW-eSq"/>
+                            <constraint firstItem="2eL-Tb-u8j" firstAttribute="leading" secondItem="qLt-Rt-JZv" secondAttribute="leadingMargin" id="6Ne-Eb-SoO"/>
+                            <constraint firstItem="ySk-rW-zyM" firstAttribute="leading" secondItem="2eL-Tb-u8j" secondAttribute="trailing" constant="50" id="FrF-rT-S8Y"/>
+                            <constraint firstItem="k1G-5h-X18" firstAttribute="top" secondItem="ySk-rW-zyM" secondAttribute="bottom" constant="8" symbolic="YES" id="Ysh-gE-fK1"/>
                             <constraint firstItem="aEg-zd-X4L" firstAttribute="top" secondItem="k1G-5h-X18" secondAttribute="bottom" id="h8O-Vg-giY"/>
-                            <constraint firstItem="ySk-rW-zyM" firstAttribute="centerY" secondItem="qLt-Rt-JZv" secondAttribute="centerY" constant="-220" id="lnv-Ev-Hcp"/>
+                            <constraint firstItem="2eL-Tb-u8j" firstAttribute="top" secondItem="CpK-rJ-T9f" secondAttribute="bottom" constant="8" id="llV-bZ-D7p"/>
+                            <constraint firstItem="ySk-rW-zyM" firstAttribute="centerX" secondItem="k1G-5h-X18" secondAttribute="centerX" id="mdH-xv-xjZ"/>
                             <constraint firstItem="k1G-5h-X18" firstAttribute="leading" secondItem="qLt-Rt-JZv" secondAttribute="leadingMargin" constant="-20" id="w2W-TC-ufz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="k1G-5h-X18" secondAttribute="trailing" constant="-20" id="zg2-Yd-iee"/>
                         </constraints>
@@ -64,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1497" y="817"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Heroes-->
         <scene sceneID="hkQ-kK-NZS">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="gxd-w7-MMg" customClass="MasterViewController" customModule="DC_Comics" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Heroes" clearsSelectionOnViewWillAppear="NO" id="gxd-w7-MMg" customClass="MasterViewController" customModule="DC_Comics" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYf-O6-QR8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +86,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KAH-Vb-9Bc" kind="show" identifier="showDetail" id="4Ua-rO-snf"/>
+                                    <segue destination="KAH-Vb-9Bc" kind="showDetail" identifier="showDetail" id="lOe-y0-qps"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -99,7 +95,7 @@
                             <outlet property="delegate" destination="gxd-w7-MMg" id="VvI-FY-nwc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="NBO-bz-ogg"/>
+                    <navigationItem key="navigationItem" title="Heroes" id="NBO-bz-ogg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOh-bp-R5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,6 +150,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2ic-Cw-PIa"/>
+        <segue reference="lOe-y0-qps"/>
     </inferredMetricsTieBreakers>
 </document>
