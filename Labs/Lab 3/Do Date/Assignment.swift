@@ -20,7 +20,11 @@ class Assignment: Object {
     dynamic var isLongTerm = false
     dynamic var isMidTerm = false
     dynamic var isShortTerm = false
-    dynamic var isOverdue = false
+
+    
+    func isOverDue() -> Bool{
+        return (NSDate().compare(self.dueDate) == NSComparisonResult.OrderedDescending)
+    }
     
     func fireNotification() {
         let settings = UIApplication.sharedApplication().currentUserNotificationSettings()

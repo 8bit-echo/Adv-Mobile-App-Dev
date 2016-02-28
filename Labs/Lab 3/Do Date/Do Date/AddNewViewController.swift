@@ -14,11 +14,23 @@ class AddNewViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var SubjectTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    //Modify datePciker.dueDate to Midnight of the selected day
+    func allowUntilMidnight(date: NSDate) -> NSDate{
+        //StackOverflow user AstroCB @ http://stackoverflow.com/questions/26189656/how-can-i-set-an-nsdate-object-to-midnight
+        let oldDate = date
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let newDate = calendar.dateBySettingHour(23, minute: 59, second: 59, ofDate: oldDate, options: NSCalendarOptions())
+        
+        return newDate!
+    }
+    
+    
+    
 
     func saveEntries() {
         let userInputName = AssignmentNameTextField.text
         let userInputSubject = SubjectTextField.text
-        let userInputDate = datePicker.date
+        let userInputDate = allowUntilMidnight(datePicker.date)
         
         let newAssignment = Assignment()
         
@@ -36,6 +48,12 @@ class AddNewViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        AssignmentNameTextField.resignFirstResponder()
+        SubjectTextField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         AssignmentNameTextField.delegate = self
@@ -49,8 +67,7 @@ class AddNewViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

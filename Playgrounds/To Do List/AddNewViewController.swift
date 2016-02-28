@@ -12,46 +12,40 @@ class AddNewViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
     var addedItem : ToDoItem?
+
     
-    //KEYBOARD METHODS
+    //--------- Keyboard Things ----------//
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
     }
-    override func resignFirstResponder() -> Bool {
-        return true
+    
+    
+    // --------- Other Things -----------//
+    
+    func checkNotify(){
+        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
+        if settings?.types.rawValue == 0{
+            let alert = UIAlertController(title: "Can't schedule notifications", message: "Please go to Settings and enable Notifcations", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+        }
     }
-    
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         nameTextField.delegate = self
         super.viewDidLoad()
+        checkNotify()
+        
         
         // Do any additional setup after loading the view.
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        
+
         if segue.identifier == "doneSegue"{
             if nameTextField.text?.isEmpty == false {
                 addedItem = ToDoItem(newName: nameTextField.text!, newReminderDate: datePicker.date, newID: NSUUID().UUIDString)

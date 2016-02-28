@@ -13,7 +13,7 @@ class MasterListTableViewController: UITableViewController {
     
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
-        
+        readAndUpdate()
         
     }
     
@@ -28,21 +28,15 @@ class MasterListTableViewController: UITableViewController {
         assignmentList = uiRealm.objects(Assignment)
         self.tableView.setEditing(false, animated: true)
         self.tableView.reloadData()
-        
-        print(assignmentList) //debugging statement
     }
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         readAndUpdate()
-
     }
     
     func viewWillAppear() {
         readAndUpdate()
-        print("ViewWillAppear() finished")
     }
 
 
@@ -56,7 +50,6 @@ class MasterListTableViewController: UITableViewController {
         return assignmentList.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cellID", forIndexPath: indexPath)
@@ -65,9 +58,29 @@ class MasterListTableViewController: UITableViewController {
         cell.textLabel?.text = list.name
         cell.detailTextLabel?.text = list.subject
         
+        if assignmentList[indexPath.row].isOverDue(){
+            cell.textLabel?.textColor = UIColor.redColor()
+        }else{
+            cell.textLabel?.textColor = UIColor.blackColor()
+            
+        }
+        
         return cell
     }
     
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+            // Delete the row from the data source
+            try! uiRealm.write({ () -> Void in
+                uiRealm.delete(assignmentList[indexPath.row])
+            })
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,17 +90,8 @@ class MasterListTableViewController: UITableViewController {
     }
     */
 
-/*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-*/
+
+
 
     /*
     // Override to support rearranging the table view.
@@ -113,5 +117,9 @@ class MasterListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    
 
 }
