@@ -26,22 +26,6 @@ class Assignment: Object {
         return (NSDate().compare(self.dueDate) == NSComparisonResult.OrderedDescending)
     }
     
-    func fireNotification() {
-        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
-        if settings!.types == .None {
-            let ac = UIAlertController(title: "Can't schedule", message: "Either we don't have permission to schedule notifications, or we haven't asked yet.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            return
-        }
-        
-        let notification = UILocalNotification()
-        notification.alertBody = "\(name) is due \(dueDate)!"
-        notification.alertAction = "Okay"
-        
-    }
-
-    
-    
 // Specify properties to ignore (Realm won't persist these)
     
 //  override static func ignoredProperties() -> [String] {

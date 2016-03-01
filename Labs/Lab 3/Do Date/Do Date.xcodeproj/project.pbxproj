@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F03120A01C83997500736F40 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0753ED91C71360500341B66 /* Realm.framework */; };
+		F03120A11C83997500736F40 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0753EDA1C71360500341B66 /* RealmSwift.framework */; };
 		F0753EA81C712F1D00341B66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0753EA71C712F1D00341B66 /* AppDelegate.swift */; };
 		F0753EAD1C712F1D00341B66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0753EAB1C712F1D00341B66 /* Main.storyboard */; };
 		F0753EAF1C712F1D00341B66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0753EAE1C712F1D00341B66 /* Assets.xcassets */; };
@@ -15,10 +17,6 @@
 		F0753EC81C712F1D00341B66 /* Do_DateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0753EC71C712F1D00341B66 /* Do_DateUITests.swift */; };
 		F0753ED61C71309C00341B66 /* MasterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0753ED51C71309C00341B66 /* MasterListTableViewController.swift */; };
 		F0753ED81C71321200341B66 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0753ED71C71321200341B66 /* AddNewViewController.swift */; };
-		F0753EDB1C71360500341B66 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0753ED91C71360500341B66 /* Realm.framework */; };
-		F0753EDC1C71360500341B66 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0753ED91C71360500341B66 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F0753EDD1C71360500341B66 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0753EDA1C71360500341B66 /* RealmSwift.framework */; };
-		F0753EDE1C71360500341B66 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0753EDA1C71360500341B66 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F0753EE21C7136AA00341B66 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0753EE11C7136AA00341B66 /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,21 +36,6 @@
 			remoteInfo = "Do Date";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F0753EDF1C71360500341B66 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F0753EDE1C71360500341B66 /* RealmSwift.framework in Embed Frameworks */,
-				F0753EDC1C71360500341B66 /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F0753EA41C712F1D00341B66 /* Do Date.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do Date.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0753EDD1C71360500341B66 /* RealmSwift.framework in Frameworks */,
-				F0753EDB1C71360500341B66 /* Realm.framework in Frameworks */,
+				F03120A01C83997500736F40 /* Realm.framework in Frameworks */,
+				F03120A11C83997500736F40 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +149,6 @@
 				F0753EA01C712F1D00341B66 /* Sources */,
 				F0753EA11C712F1D00341B66 /* Frameworks */,
 				F0753EA21C712F1D00341B66 /* Resources */,
-				F0753EDF1C71360500341B66 /* Embed Frameworks */,
 				F0753EE01C71361D00341B66 /* ShellScript */,
 			);
 			buildRules = (
@@ -548,6 +530,7 @@
 				F0753ECE1C712F1D00341B66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0753ECF1C712F1D00341B66 /* Build configuration list for PBXNativeTarget "Do DateTests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +539,7 @@
 				F0753ED11C712F1D00341B66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0753ED21C712F1D00341B66 /* Build configuration list for PBXNativeTarget "Do DateUITests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +548,7 @@
 				F0753ED41C712F1D00341B66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
