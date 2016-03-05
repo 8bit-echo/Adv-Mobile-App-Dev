@@ -52,7 +52,7 @@
 		F0E88C8C1C7384A0008EAAA9 /* pictureCollectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pictureCollectionUITests.swift; sourceTree = "<group>"; };
 		F0E88C8E1C7384A0008EAAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E88C9A1C73851E008EAAA9 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		F0E88C9C1C7385EF008EAAA9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		F0E88C9C1C7385EF008EAAA9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,6 @@
 		F0E88C601C7384A0008EAAA9 = {
 			isa = PBXGroup;
 			children = (
-				F0E88C9C1C7385EF008EAAA9 /* CollectionViewCell.swift */,
 				F0E88C6B1C7384A0008EAAA9 /* pictureCollection */,
 				F0E88C801C7384A0008EAAA9 /* pictureCollectionTests */,
 				F0E88C8B1C7384A0008EAAA9 /* pictureCollectionUITests */,
@@ -104,6 +103,7 @@
 		F0E88C6B1C7384A0008EAAA9 /* pictureCollection */ = {
 			isa = PBXGroup;
 			children = (
+				F0E88C9C1C7385EF008EAAA9 /* CollectionViewCell.swift */,
 				F0E88C6C1C7384A0008EAAA9 /* AppDelegate.swift */,
 				F0E88C701C7384A0008EAAA9 /* Main.storyboard */,
 				F01469CA1C76247700DD3A0E /* DetailViewController.swift */,
