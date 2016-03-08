@@ -38,38 +38,36 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     @IBAction func showMoreOptions(sender: AnyObject) {
     }
     @IBAction func doneButton(sender: UIBarButtonItem) {
-        addToRack()
+        //Check for blank fields
+        // if blank present error window
+        //else save & unwind
+        
+        let userSpiceName = spiceNameTextField.text
+        let userVolume = volumePurchasedTextField.text
+        let unit = "oz"
+        let newSpice = Spice()
+        
+        if (spiceNameTextField.text!.isEmpty || volumePurchasedTextField.text!.isEmpty){
+            let alertController = UIAlertController(title: "Can't Save", message:
+                "Please enter a name and Net Weight", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            print("Save Function detected errors in the input")
+        } else {
+            newSpice.name = userSpiceName!
+            newSpice.unit = unit
+            newSpice.netWt = Double(userVolume!)!
+            
+            try! database.write({database.add(newSpice)})
+            print("Saved to database")
+            
+            performSegueWithIdentifier("doneSegue", sender: nil)
+        }
+        
     }
     
-    // MARK: - My Functions
-    func addToRack(){
-        let userSpiceName = spiceNameTextField.text!
-        let unit = "oz"
-        
-        if !(spiceNameTextField.text!.isEmpty && volumePurchasedTextField.text!.isEmpty){
-            let newSpice = Spice()
-            
-            newSpice.name = userSpiceName
-            newSpice.unit = unit
-            
-            if let userVolume = Double((volumePurchasedTextField.text)!) {
-                newSpice.netWt = userVolume
-                newSpice.volumeRemaining = userVolume
-                try! database.write({database.add(newSpice)})
-                performSegueWithIdentifier("doneSegue", sender: nil)
-                
-            }else{
-                let alertController = UIAlertController(title: "Can't Save", message:
-                    "Please enter a name and Net Weight", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-            }
-            //try! database.write({database.add(newSpice)})
-        }
-        //FUNCTION HERE
-    }
+
     
     
     // MARK: - Included
@@ -97,39 +95,31 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     
     // MARK: - Navigation
     //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //
-    //        if segue.identifier == "doneSegue"{
-    //            addToRack()
-    //        }
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
     //      }
-//@IBAction func doneSegue(segue:UIStoryboardSegue){
-//    }
-
-
-// MARK: - PickerView
-func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-    return 3
-}
-
-func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    if component == 2 {
-        return units.count
-    }else{
-        return numbers.count
-    }
-}
-
-func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return "String"
-}
-
-func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     
-}
-
-
+    
+    // MARK: - PickerView
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 2 {
+            return units.count
+        }else{
+            return numbers.count
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "String"
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    
+    
 }
 //End of Class
 

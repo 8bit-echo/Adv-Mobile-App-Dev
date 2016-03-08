@@ -82,7 +82,6 @@ class SpiceRack_CollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     @IBAction func doneSegue(segue:UIStoryboardSegue){
-        readAndUpdate()
     }
     
 
@@ -100,6 +99,7 @@ class SpiceRack_CollectionViewController: UICollectionViewController {
         let spiceName = currentRack[indexPath.row].name.capitalizedString
         
         cell.spiceNameLabel.text = spiceName
+        cell.spiceTextureImage.frame = CGRect(x: 0, y: -50, width: 100, height: 50)
         
         switch spiceName{
         case "Oregano":

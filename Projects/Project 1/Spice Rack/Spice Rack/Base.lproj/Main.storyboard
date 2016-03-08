@@ -39,22 +39,28 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uWg-Gj-lJe">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="8" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="iSu-Ua-OO7"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyjar" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-ag-cHX">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="-2" y="8" width="104" height="104"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="104" id="Uel-UI-Ukw"/>
+                                                <constraint firstAttribute="width" constant="104" id="vqr-4N-vP9"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="uWg-Gj-lJe" firstAttribute="trailing" secondItem="JLo-ag-cHX" secondAttribute="trailing" id="0iZ-VB-zoK"/>
                                     <constraint firstItem="uWg-Gj-lJe" firstAttribute="leading" secondItem="yg8-di-7eS" secondAttribute="leading" id="3nT-In-BlD"/>
+                                    <constraint firstItem="JLo-ag-cHX" firstAttribute="centerX" secondItem="7KS-FN-sfB" secondAttribute="centerX" id="G5L-fs-EfR"/>
+                                    <constraint firstItem="JLo-ag-cHX" firstAttribute="centerX" secondItem="yg8-di-7eS" secondAttribute="centerX" id="JIb-8H-q6I"/>
                                     <constraint firstItem="uWg-Gj-lJe" firstAttribute="centerX" secondItem="7KS-FN-sfB" secondAttribute="centerX" id="Mhp-UA-EbK"/>
-                                    <constraint firstItem="uWg-Gj-lJe" firstAttribute="top" secondItem="yg8-di-7eS" secondAttribute="top" id="R5c-Yu-JJw"/>
-                                    <constraint firstItem="uWg-Gj-lJe" firstAttribute="leading" secondItem="JLo-ag-cHX" secondAttribute="leading" id="Tcw-on-LJ9"/>
-                                    <constraint firstItem="uWg-Gj-lJe" firstAttribute="bottom" secondItem="JLo-ag-cHX" secondAttribute="bottom" id="kBS-Lh-VKl"/>
-                                    <constraint firstItem="uWg-Gj-lJe" firstAttribute="top" secondItem="JLo-ag-cHX" secondAttribute="top" id="vaR-BA-FKn"/>
+                                    <constraint firstItem="uWg-Gj-lJe" firstAttribute="top" secondItem="yg8-di-7eS" secondAttribute="top" constant="8" id="R5c-Yu-JJw"/>
+                                    <constraint firstItem="JLo-ag-cHX" firstAttribute="centerY" secondItem="yg8-di-7eS" secondAttribute="centerY" constant="-4.5" id="jXH-1k-oGZ"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="7KS-FN-sfB" secondAttribute="bottom" constant="-8" id="vfx-NR-YSC"/>
                                 </constraints>
                                 <connections>
@@ -121,7 +127,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uJP-Sc-QSp">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uJP-Sc-QSp">
                                 <rect key="frame" x="18" y="285" width="564" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="cxV-lF-RBc" eventType="valueChanged" id="Bnn-tl-NqJ"/>
@@ -179,6 +185,7 @@
                         <outlet property="label2" destination="e5c-2C-yYs" id="Pab-81-h4H"/>
                         <outlet property="percentageLabel" destination="jqX-tv-ox8" id="YFZ-Gx-PlZ"/>
                         <outlet property="volumeSlider" destination="uJP-Sc-QSp" id="cZM-um-3Js"/>
+                        <segue destination="YHf-Oi-r7C" kind="unwind" identifier="unwindSegue" unwindAction="unwindSegue:" id="XKu-Zt-Uai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCa-Ub-jdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -291,9 +298,11 @@
                         <outlet property="volumePicker" destination="Vl1-7Z-iiq" id="qdw-7O-Rmx"/>
                         <outlet property="volumePurchasedTextField" destination="cbk-O9-EJp" id="eed-qb-C9V"/>
                         <outlet property="volumeSlider" destination="RaA-Eb-MCs" id="mHa-Z4-XmL"/>
+                        <segue destination="eK4-8m-d9I" kind="unwind" identifier="doneSegue" unwindAction="doneSegue:" id="KWM-8K-mTU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZx-M0-qcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eK4-8m-d9I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2690" y="572"/>
         </scene>

@@ -32,17 +32,15 @@ class SpiceDetails_ViewController: UIViewController {
         percentageLabel.text = String(currentSliderValue) + "%"
         
         let volumeRemaining = receivedObject!.netWt * Double(sender.value/100).roundToPlaces(1)
+        label2.text = String(volumeRemaining)
         
-        
-        label2.text = String(volumeRemaining) + " oz"
-        
-        try! database.write {
-            receivedObject!.volumeRemaining = volumeRemaining
-        }
-
     }
     
     @IBAction func saveChanges(sender: AnyObject) {
+        try! database.write{
+            receivedObject!.volumeRemaining = Double(label2.text!)!
+        }
+        performSegueWithIdentifier("unwindSegue", sender: nil)
         
     }
     
@@ -56,26 +54,34 @@ class SpiceDetails_ViewController: UIViewController {
         
         label1.text = receivedObject!.name.capitalizedString
         label2.text = String(receivedObject!.volumeRemaining) + " oz"
+        
+        //Update slider to reflect the volume left in the Spice.
+        let percentageLeft = Float(receivedObject!.volumeRemaining / receivedObject!.netWt * 100)
+        volumeSlider.value = percentageLeft
+        percentageLabel.text = String(Int(percentageLeft)) + "%"
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "trashSegue"{
-                try! database.write({
-                    database.delete(receivedObject!)
-                })
+            
+            // TO DO: ALERT CONTROLLER CONFIRMING DELETION
+            
+            try! database.write({
+                database.delete(receivedObject!)
+            })
         }
         
     }
-
-
+    
+    
 } // End of Class
 
