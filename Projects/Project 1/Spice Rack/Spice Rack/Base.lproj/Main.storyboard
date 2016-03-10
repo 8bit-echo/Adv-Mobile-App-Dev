@@ -176,7 +176,7 @@
                     <navigationItem key="navigationItem" title="Details" id="KDE-e2-dlR">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Ksf-tg-jAA">
                             <connections>
-                                <segue destination="YHf-Oi-r7C" kind="unwind" identifier="trashSegue" unwindAction="unwindSegue:" id="41J-Rh-5MV"/>
+                                <action selector="trashIconTapped:" destination="cxV-lF-RBc" id="Xa2-ld-bSj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

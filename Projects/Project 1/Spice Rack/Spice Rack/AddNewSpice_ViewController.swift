@@ -58,6 +58,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
             newSpice.name = userSpiceName!
             newSpice.unit = unit
             newSpice.netWt = Double(userVolume!)!
+            newSpice.volumeRemaining = Double(Float(userVolume!)! * volumeSlider.value/100)
             
             try! database.write({database.add(newSpice)})
             print("Saved to database")

@@ -24,7 +24,7 @@ class SpiceDetails_ViewController: UIViewController {
     
     
     // MARK: - IBActions
-    @IBAction func showDetailSegue(segue: UIStoryboardSegue){}
+    @IBAction func showDetailSegue(segue: UIStoryboardSegue) { }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         
@@ -44,7 +44,32 @@ class SpiceDetails_ViewController: UIViewController {
         
     }
     
+    @IBAction func trashIconTapped(sender: AnyObject) {
+        let options = UIAlertController(title: nil, message: "Remove \(receivedObject!.name) from your rack?", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
+            (alert: UIAlertAction!) -> Void in self.trashAndUnwind()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in print("should Cancel")
+        })
+        
+        options.addAction(deleteAction)
+        options.addAction(cancelAction)
+        
+        self.presentViewController(options, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - My Functions
+    
+    func trashAndUnwind(){
+        try! database.write({
+            database.delete(receivedObject!)
+        })
+        performSegueWithIdentifier("unwindSegue", sender: nil)
+    }
     
     
     
@@ -53,7 +78,7 @@ class SpiceDetails_ViewController: UIViewController {
         super.viewDidLoad()
         
         label1.text = receivedObject!.name.capitalizedString
-        label2.text = String(receivedObject!.volumeRemaining) + " oz"
+        label2.text = String(receivedObject!.volumeRemaining)
         
         //Update slider to reflect the volume left in the Spice.
         let percentageLeft = Float(receivedObject!.volumeRemaining / receivedObject!.netWt * 100)
@@ -71,16 +96,8 @@ class SpiceDetails_ViewController: UIViewController {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "trashSegue"{
-            
-            // TO DO: ALERT CONTROLLER CONFIRMING DELETION
-            
-            try! database.write({
-                database.delete(receivedObject!)
-            })
-        }
-        
     }
+    
     
     
 } // End of Class

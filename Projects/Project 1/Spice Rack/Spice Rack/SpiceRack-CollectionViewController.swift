@@ -99,7 +99,9 @@ class SpiceRack_CollectionViewController: UICollectionViewController {
         let spiceName = currentRack[indexPath.row].name.capitalizedString
         
         cell.spiceNameLabel.text = spiceName
-        cell.spiceTextureImage.frame = CGRect(x: 0, y: -50, width: 100, height: 50)
+        
+        //cell.spiceTextureImage.frame.size.height = 50
+        cell.spiceTextureImage.frame.offsetInPlace(dx: 0.0, dy: 50.0)
         
         switch spiceName{
         case "Oregano":
