@@ -28,24 +28,30 @@ class WebView_ViewController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         spinner.stopAnimating()
     }
-
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func configureView() {
         title = loadedStoreName
         
         switch loadedStoreName{
-            case "Home Depot":
-                url = "http://www.homedepot.com"
-            case "King Soopers":
-                url = "https://www.homedepot.com"
+        case "Home Depot":
+            url = "http://www.homedepot.com"
+        case "King Soopers":
+            url = "https://www.homedepot.com"
         default:
             break
         }
         
         loadWebPage(url)
         
+    }
+
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configureView()
+        print("the URL is \(url)")
+        print("the Store Name  is \(loadedStoreName)")
         
 
         // Do any additional setup after loading the view.

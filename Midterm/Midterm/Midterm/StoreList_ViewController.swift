@@ -50,8 +50,12 @@ class StoreList_ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        storeName = stores[indexPath.row]
         
+    }
+    
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        storeName = stores[indexPath.row]
+        print("user selected \(storeName) as the stores name")
     }
 
     /*
@@ -99,6 +103,9 @@ class StoreList_ViewController: UITableViewController {
                 
                 let controller = (segue.destinationViewController as! WebView_ViewController)
                 controller.loadedStoreName = passedStoreName
+                
+                
+                print("now passing \(passedStoreName) as the Store Name")
         }
     }
 
