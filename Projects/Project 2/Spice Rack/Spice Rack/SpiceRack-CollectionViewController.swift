@@ -53,6 +53,7 @@ class SpiceRack_CollectionViewController: UICollectionViewController{
         super.viewDidLoad()
         let shelf = UIImage(named: "newshelf.jpg")
         self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
+        //print(Realm.Configuration.defaultConfiguration.path!)
         
         //self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
         //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]

@@ -203,22 +203,22 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="b6E-yK-7PG"/>
                                 <exclude reference="68v-8k-zML"/>
                                 <exclude reference="O9E-LT-C0G"/>
                                 <exclude reference="XP5-mg-Ed2"/>
-                                <exclude reference="b6E-yK-7PG"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
+                                <exclude reference="M5L-mV-MOC"/>
+                                <include reference="b6E-yK-7PG"/>
                                 <include reference="68v-8k-zML"/>
                                 <exclude reference="Lpa-vt-pe9"/>
                                 <include reference="O9E-LT-C0G"/>
                                 <include reference="XP5-mg-Ed2"/>
                                 <exclude reference="ZHc-9a-aOX"/>
                                 <exclude reference="hOD-nU-MfO"/>
-                                <exclude reference="M5L-mV-MOC"/>
-                                <include reference="b6E-yK-7PG"/>
                             </mask>
                         </variation>
                     </view>
@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="1861.5" y="1318.5"/>
         </scene>
-        <!--Add a New Spice-->
+        <!--Add New-->
         <scene sceneID="rI6-ep-ygY">
             <objects>
-                <viewController id="9FC-7B-STu" customClass="AddNewSpice_ViewController" customModule="Spice_Rack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add New" automaticallyAdjustsScrollViewInsets="NO" id="9FC-7B-STu" customClass="AddNewSpice_ViewController" customModule="Spice_Rack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s5s-0I-eg3"/>
                         <viewControllerLayoutGuide type="bottom" id="IXB-mF-Eeq"/>
@@ -261,7 +261,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volume Purchased" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbk-O9-EJp">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Net Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbk-O9-EJp">
                                 <rect key="frame" x="20" y="152" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="done"/>
@@ -298,9 +298,17 @@
                                     <action selector="showMoreOptions:" destination="9FC-7B-STu" eventType="touchUpInside" id="YEn-ZG-au5"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vl1-7Z-iiq">
+                            <pickerView hidden="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vl1-7Z-iiq">
                                 <rect key="frame" x="0.0" y="308" width="600" height="216"/>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCV-Js-VSX">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="361" width="360" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -326,6 +334,16 @@
                             <constraint firstItem="cbk-O9-EJp" firstAttribute="leading" secondItem="31W-29-QWc" secondAttribute="leadingMargin" id="xUp-hK-FdF"/>
                             <constraint firstItem="QbE-rj-Y2v" firstAttribute="top" secondItem="s5s-0I-eg3" secondAttribute="bottom" constant="50" id="z8I-pL-Q8L"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wCV-Js-VSX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="wCV-Js-VSX"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="DcK-fz-8fC" appends="YES" id="E0m-W7-92v"/>
                         </connections>
@@ -354,7 +372,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2690" y="572"/>
+            <point key="canvasLocation" x="2689.5" y="571.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xSo-3q-ymF">

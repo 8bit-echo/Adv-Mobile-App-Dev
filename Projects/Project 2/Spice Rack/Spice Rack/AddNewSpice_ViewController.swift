@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import FSCalendar
 
 //Food2Fork API KEY - 613a0c14db1697aa0f221ea66e1cec08
 // http://stackoverflow.com/questions/26819423/show-uipickerview-text-field-is-selected-then-hide-after-selected
@@ -30,6 +31,8 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     var fullVolumeString = String()
     var userUnit = String()
     var userVolume = Double()
+    
+
     
     
     
@@ -148,8 +151,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         
     }
     
-    
-    
+
     
     // MARK: - Included
     override func viewDidLoad() {
@@ -161,7 +163,11 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         volumePicker.hidden = true
         
         
-        // Do any additional setup after loading the view.
+        //listen for keyboard movememnts only works for Swift 2.2
+        let showKeyboard = #selector(AddNewSpice_ViewController.keyboardWillShow(_:))
+        let hideKeyboard = #selector(AddNewSpice_ViewController.keyboardWillHide(_:))
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: showKeyboard, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: hideKeyboard, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -188,6 +194,22 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     func textFieldDidEndEditing(textField: UITextField) {
         textField.resignFirstResponder()
         volumePicker.hidden = true
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        
+        
+        
+        // Do any additional setup after loading the view.
     }
     
     
