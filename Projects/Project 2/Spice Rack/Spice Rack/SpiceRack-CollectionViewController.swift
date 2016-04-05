@@ -80,6 +80,7 @@ class SpiceRack_CollectionViewController: UICollectionViewController{
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
+    
     @IBAction func doneSegue(segue:UIStoryboardSegue){
     }
     

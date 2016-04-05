@@ -14,7 +14,7 @@ import FSCalendar
 // http://stackoverflow.com/questions/26819423/show-uipickerview-text-field-is-selected-then-hide-after-selected
 
 
-class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     // MARK: - Global Variables
     let database = try! Realm()
@@ -32,7 +32,9 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     var userUnit = String()
     var userVolume = Double()
     
-
+    // Mark: - Optional properties
+    @IBOutlet weak var brandTextField: UITextField!
+    @IBOutlet weak var calendar: FSCalendar!
     
     
     
@@ -62,11 +64,24 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
             
             self.presentViewController(alertController, animated: true, completion: nil)
         } else {
+            // Required Fields
             newSpice.name = userSpiceName!
             newSpice.unit = userUnit
             newSpice.netWt = userVolume
             newSpice.volumeRemaining = Double(Float(userVolume) * volumeSlider.value/100)
             newSpice.calculatePercentage()
+            
+            
+            //Optional Fields
+            
+            if let definiteBrand = brandTextField.text {
+                newSpice.brand = definiteBrand
+            }
+            
+            
+            
+            //purchase and exp date
+            
             
             
             switch newSpice.name.lowercaseString {
@@ -151,7 +166,10 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         
     }
     
-
+    
+    func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
+        print(date)
+    }
     
     // MARK: - Included
     override func viewDidLoad() {
@@ -285,7 +303,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
             rawValueAsString += number
         }
         if rawValueAsString != "."{
-        userVolume = Double(rawValueAsString)!
+            userVolume = Double(rawValueAsString)!
         }
     }
     

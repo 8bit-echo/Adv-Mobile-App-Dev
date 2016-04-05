@@ -110,25 +110,25 @@
                                     <constraint firstAttribute="height" constant="298" id="pE5-F9-vNo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPa-Pr-nnY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPa-Pr-nnY">
                                 <rect key="frame" x="117" y="252" width="366" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5c-2C-yYs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Qty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5c-2C-yYs">
                                 <rect key="frame" x="117" y="291" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uJP-Sc-QSp">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uJP-Sc-QSp">
                                 <rect key="frame" x="34" y="342" width="533" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="cxV-lF-RBc" eventType="valueChanged" id="Bnn-tl-NqJ"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage Remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjU-Vn-heX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Percentage Remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjU-Vn-heX">
                                 <rect key="frame" x="220" y="376" width="160" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="vxx-TQ-bsF"/>
@@ -137,7 +137,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqX-tv-ox8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqX-tv-ox8">
                                 <rect key="frame" x="539" y="377" width="41" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="hQI-fk-AHz"/>
@@ -156,7 +156,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-7d-KWf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-7d-KWf">
                                 <rect key="frame" x="506" y="291" width="29" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,7 +244,7 @@
             </objects>
             <point key="canvasLocation" x="1861.5" y="1318.5"/>
         </scene>
-        <!--Add New-->
+        <!--Data Source-->
         <scene sceneID="rI6-ep-ygY">
             <objects>
                 <viewController title="Add New" automaticallyAdjustsScrollViewInsets="NO" id="9FC-7B-STu" customClass="AddNewSpice_ViewController" customModule="Spice_Rack" customModuleProvider="target" sceneMemberID="viewController">
@@ -309,6 +309,17 @@
                                     <rect key="frame" x="20" y="361" width="360" height="30"/>
                                 </variation>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ap1-o2-f9A" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="470" width="400" height="281"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="9FC-7B-STu" id="DJ4-I2-L4x"/>
+                                    <outlet property="delegate" destination="9FC-7B-STu" id="eR4-Yi-zU9"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -337,11 +348,13 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="wCV-Js-VSX"/>
+                                <exclude reference="ap1-o2-f9A"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="wCV-Js-VSX"/>
+                                <include reference="ap1-o2-f9A"/>
                             </mask>
                         </variation>
                         <connections>
@@ -356,6 +369,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="brandTextField" destination="wCV-Js-VSX" id="mz2-Bn-is1"/>
+                        <outlet property="calendar" destination="ap1-o2-f9A" id="yuR-V1-9xV"/>
                         <outlet property="percentageLabel" destination="pMS-x0-BU0" id="HZs-xZ-A7r"/>
                         <outlet property="spiceNameTextField" destination="QbE-rj-Y2v" id="L0C-eN-f5p"/>
                         <outlet property="volumePicker" destination="Vl1-7Z-iiq" id="qdw-7O-Rmx"/>
