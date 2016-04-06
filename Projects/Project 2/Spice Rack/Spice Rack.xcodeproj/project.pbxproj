@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F00E02B31CB4D6B50018BBF3 /* CombinedMain_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00E02B21CB4D6B50018BBF3 /* CombinedMain_ViewController.swift */; };
 		F09DCC481C85F8AE006F8DAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC471C85F8AE006F8DAA /* AppDelegate.swift */; };
 		F09DCC4D1C85F8AE006F8DAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09DCC4B1C85F8AE006F8DAA /* Main.storyboard */; };
 		F09DCC4F1C85F8AE006F8DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09DCC4E1C85F8AE006F8DAA /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F00E02B21CB4D6B50018BBF3 /* CombinedMain_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedMain_ViewController.swift; sourceTree = "<group>"; };
 		F09DCC441C85F8AE006F8DAA /* Spice Rack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spice Rack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09DCC471C85F8AE006F8DAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09DCC4C1C85F8AE006F8DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F09DCC891C85FA8E006F8DAA /* Spice.swift */,
 				F09DCC471C85F8AE006F8DAA /* AppDelegate.swift */,
 				F09DCC4B1C85F8AE006F8DAA /* Main.storyboard */,
+				F00E02B21CB4D6B50018BBF3 /* CombinedMain_ViewController.swift */,
 				F09DCC941C865566006F8DAA /* SpiceDetails_ViewController.swift */,
 				F09DCC8D1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift */,
 				F09DCC8B1C85FBF1006F8DAA /* SpiceRack-CollectionViewController.swift */,
@@ -324,6 +327,7 @@
 				F09DCC481C85F8AE006F8DAA /* AppDelegate.swift in Sources */,
 				F09DCC8C1C85FBF1006F8DAA /* SpiceRack-CollectionViewController.swift in Sources */,
 				F09DCC8A1C85FA8E006F8DAA /* Spice.swift in Sources */,
+				F00E02B31CB4D6B50018BBF3 /* CombinedMain_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

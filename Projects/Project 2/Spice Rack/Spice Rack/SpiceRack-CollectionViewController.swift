@@ -30,13 +30,14 @@ class SpiceRack_CollectionViewController: UICollectionViewController{
     // MARK: - IBActions
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
         
-        if segue.identifier == "doneSegue"{
-            readAndUpdate()
-            
-        }else{
-            readAndUpdate()
-        }
-        
+//        if segue.identifier == "doneSegue"{
+//            readAndUpdate()
+//            
+//        }else{
+//            readAndUpdate()
+//        }
+//        
+        readAndUpdate()
     }
     
     
