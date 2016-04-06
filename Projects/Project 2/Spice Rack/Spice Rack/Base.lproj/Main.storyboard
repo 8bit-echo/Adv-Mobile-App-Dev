@@ -162,11 +162,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdF-iW-Qz6">
-                                <rect key="frame" x="251" y="550" width="98" height="30"/>
-                                <state key="normal" title="Save Changes"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgR-Qo-V5A">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="157" y="694" width="87" height="30"/>
+                                </variation>
                                 <connections>
-                                    <action selector="saveChanges:" destination="cxV-lF-RBc" eventType="touchUpInside" id="wFQ-fr-FiO"/>
+                                    <action selector="trashIconTapped:" destination="cxV-lF-RBc" eventType="touchUpInside" id="8zN-zM-h75"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -190,18 +195,15 @@
                             <constraint firstItem="Ooo-NQ-oVm" firstAttribute="top" secondItem="jqX-tv-ox8" secondAttribute="bottom" constant="154" id="b6E-yK-7PG"/>
                             <constraint firstItem="uJP-Sc-QSp" firstAttribute="top" secondItem="e5c-2C-yYs" secondAttribute="bottom" constant="30" id="ff6-xg-Y0y"/>
                             <constraint firstItem="jqX-tv-ox8" firstAttribute="trailing" secondItem="8PX-al-riy" secondAttribute="trailingMargin" id="hOD-nU-MfO"/>
-                            <constraint firstAttribute="bottom" secondItem="TdF-iW-Qz6" secondAttribute="bottom" constant="20" symbolic="YES" id="hp5-g8-gsb">
-                                <variation key="heightClass=regular-widthClass=compact" constant="81"/>
-                            </constraint>
-                            <constraint firstItem="fjU-Vn-heX" firstAttribute="centerX" secondItem="TdF-iW-Qz6" secondAttribute="centerX" id="jrf-KF-Lsn">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-15"/>
-                            </constraint>
                             <constraint firstItem="e5c-2C-yYs" firstAttribute="leading" secondItem="OPa-Pr-nnY" secondAttribute="leading" id="loi-Ok-Zfc"/>
                             <constraint firstItem="e5c-2C-yYs" firstAttribute="trailing" secondItem="OPa-Pr-nnY" secondAttribute="trailing" id="pfv-2Q-5mK"/>
                             <constraint firstItem="fjU-Vn-heX" firstAttribute="centerX" secondItem="uJP-Sc-QSp" secondAttribute="centerX" id="xmd-Pd-xfj"/>
                             <constraint firstItem="uJP-Sc-QSp" firstAttribute="centerX" secondItem="e5c-2C-yYs" secondAttribute="centerX" id="ylg-sF-tmP"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lgR-Qo-V5A"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="b6E-yK-7PG"/>
                                 <exclude reference="68v-8k-zML"/>
@@ -210,6 +212,9 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lgR-Qo-V5A"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="M5L-mV-MOC"/>
                                 <include reference="b6E-yK-7PG"/>
@@ -223,9 +228,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="KDE-e2-dlR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Ksf-tg-jAA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="s60-fP-hH2">
                             <connections>
-                                <action selector="trashIconTapped:" destination="cxV-lF-RBc" id="Xa2-ld-bSj"/>
+                                <action selector="saveChanges:" destination="cxV-lF-RBc" id="aLm-41-rYT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
