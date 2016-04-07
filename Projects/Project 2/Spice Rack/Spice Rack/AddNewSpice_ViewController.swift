@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-import FSCalendar
+
 
 //Food2Fork API KEY - 613a0c14db1697aa0f221ea66e1cec08
 // http://stackoverflow.com/questions/26819423/show-uipickerview-text-field-is-selected-then-hide-after-selected
@@ -34,7 +34,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     
     // Mark: - Optional properties
     @IBOutlet weak var brandTextField: UITextField!
-    @IBOutlet weak var calendar: FSCalendar!
     
     
     
@@ -46,6 +45,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         
     }
     @IBAction func showMoreOptions(sender: AnyObject) {
+        brandTextField.hidden = false
     }
     @IBAction func doneButton(sender: UIBarButtonItem) {
         //Check for blank fields
@@ -53,8 +53,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         //else save & unwind
         
         let userSpiceName = spiceNameTextField.text
-        //let userVolume = volumePurchasedTextField.text
-        //let unit = "oz"
         let newSpice = Spice()
         
         if (spiceNameTextField.text!.isEmpty || userVolume == 0.0){
@@ -77,13 +75,11 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
             if let definiteBrand = brandTextField.text {
                 newSpice.brand = definiteBrand
             }
-            
-            
-            
+
             //purchase and exp date
             
             
-            
+            //Handle Spice Image
             switch newSpice.name.lowercaseString {
                 
             case "beige":
@@ -167,10 +163,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     }
     
     
-    func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
-        print(date)
-    }
-    
     // MARK: - Included
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -179,13 +171,8 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         volumePicker.delegate = self
         volumePicker.dataSource = self
         volumePicker.hidden = true
-        
-        
-        //listen for keyboard movememnts only works for Swift 2.2
-        let showKeyboard = #selector(AddNewSpice_ViewController.keyboardWillShow(_:))
-        let hideKeyboard = #selector(AddNewSpice_ViewController.keyboardWillHide(_:))
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: showKeyboard, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: hideKeyboard, name: UIKeyboardWillHideNotification, object: nil)
+        brandTextField.hidden = true
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -213,22 +200,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         textField.resignFirstResponder()
         volumePicker.hidden = true
     }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y += keyboardSize.height
-        }
-        
-        
-        
-        // Do any additional setup after loading the view.
-    }
+
     
     
     

@@ -21,8 +21,6 @@
 		F09DCC8A1C85FA8E006F8DAA /* Spice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC891C85FA8E006F8DAA /* Spice.swift */; };
 		F09DCC8C1C85FBF1006F8DAA /* SpiceRack-CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC8B1C85FBF1006F8DAA /* SpiceRack-CollectionViewController.swift */; };
 		F09DCC8E1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC8D1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift */; };
-		F09DCC901C860247006F8DAA /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DCC8F1C860247006F8DAA /* FSCalendar.framework */; };
-		F09DCC911C860247006F8DAA /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F09DCC8F1C860247006F8DAA /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F09DCC931C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC921C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift */; };
 		F09DCC951C865566006F8DAA /* SpiceDetails_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC941C865566006F8DAA /* SpiceDetails_ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +50,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F09DCC881C85FA53006F8DAA /* RealmSwift.framework in Embed Frameworks */,
-				F09DCC911C860247006F8DAA /* FSCalendar.framework in Embed Frameworks */,
 				F09DCC861C85FA53006F8DAA /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,7 +76,6 @@
 		F09DCC891C85FA8E006F8DAA /* Spice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Spice.swift; path = ../Spice.swift; sourceTree = "<group>"; };
 		F09DCC8B1C85FBF1006F8DAA /* SpiceRack-CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpiceRack-CollectionViewController.swift"; sourceTree = "<group>"; };
 		F09DCC8D1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewSpice_ViewController.swift; sourceTree = "<group>"; };
-		F09DCC8F1C860247006F8DAA /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		F09DCC921C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpiceJar_CollectionViewCell.swift; path = ../SpiceJar_CollectionViewCell.swift; sourceTree = "<group>"; };
 		F09DCC941C865566006F8DAA /* SpiceDetails_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiceDetails_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +86,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09DCC871C85FA53006F8DAA /* RealmSwift.framework in Frameworks */,
-				F09DCC901C860247006F8DAA /* FSCalendar.framework in Frameworks */,
 				F09DCC851C85FA53006F8DAA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +110,6 @@
 		F09DCC3B1C85F8AE006F8DAA = {
 			isa = PBXGroup;
 			children = (
-				F09DCC8F1C860247006F8DAA /* FSCalendar.framework */,
 				F09DCC831C85FA53006F8DAA /* Realm.framework */,
 				F09DCC841C85FA53006F8DAA /* RealmSwift.framework */,
 				F09DCC461C85F8AE006F8DAA /* Spice Rack */,

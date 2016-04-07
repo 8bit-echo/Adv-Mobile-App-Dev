@@ -36,7 +36,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         }
         
     }
-    
+    @IBAction func doneSegue(segue: UIStoryboardSegue){
+    }
     @IBAction func segmentSelectionChanged(sender: AnyObject) {
         let selectedSegment = segmentBar.selectedSegmentIndex
         
@@ -107,8 +108,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //spicetoDetail = currentRack[indexPath.row]
-        //performSegueWithIdentifier("showDetails", sender: nil)
+        spicetoDetail = currentRack[indexPath.row]
+        performSegueWithIdentifier("showDetails", sender: nil)
     }
     
     
@@ -128,8 +129,11 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
         cell.textLabel?.text = spiceName
         cell.detailTextLabel?.text = "\(percentRemaining)%"
-        //cell.textLabel?.textColor = UIColor.whiteColor()
-        //cell.detailTextLabel?.textColor = UIColor.whiteColor()
+        cell.detailTextLabel?.textColor = UIColor.blackColor()
+        
+        if spice.percentageRemaining <= 10 {
+            cell.detailTextLabel?.textColor = UIColor.redColor()
+        }
         
         if let image = spice.imageName{
             let bgImage = UIImage(named: image)
@@ -146,6 +150,11 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        spicetoDetail = currentRack[indexPath.row]
+        performSegueWithIdentifier("showDetails", sender: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,6 +168,15 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
-    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showDetails" && spicetoDetail != nil) {
+            let showDetailsVC = segue.destinationViewController as! SpiceDetails_ViewController
+            showDetailsVC.receivedObject = spicetoDetail
+        }
+        
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+    }
     
 }

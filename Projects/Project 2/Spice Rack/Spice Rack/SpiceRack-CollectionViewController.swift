@@ -55,9 +55,6 @@ class SpiceRack_CollectionViewController: UICollectionViewController{
         let shelf = UIImage(named: "newshelf.jpg")
         self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
         //print(Realm.Configuration.defaultConfiguration.path!)
-        
-        //self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
 
     }
     
@@ -82,8 +79,8 @@ class SpiceRack_CollectionViewController: UICollectionViewController{
         // Pass the selected object to the new view controller.
     }
     
-    @IBAction func doneSegue(segue:UIStoryboardSegue){
-    }
+//    @IBAction func doneSegue(segue:UIStoryboardSegue){
+//    }
     
     
     // MARK: CollectionView Requirements
