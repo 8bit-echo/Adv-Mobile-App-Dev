@@ -308,6 +308,9 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="405" height="697"/>
+                                        </variation>
                                         <connections>
                                             <outlet property="dataSource" destination="usK-xD-ivg" id="yxO-vM-B3F"/>
                                             <outlet property="delegate" destination="usK-xD-ivg" id="yH7-hq-j4o"/>
@@ -315,34 +318,14 @@
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="wh4-yQ-JQQ" secondAttribute="bottom" id="VIA-j4-T1F"/>
-                                    <constraint firstAttribute="trailing" secondItem="wh4-yQ-JQQ" secondAttribute="trailing" id="oUf-P2-V9x"/>
-                                    <constraint firstItem="wh4-yQ-JQQ" firstAttribute="top" secondItem="P20-6Q-TWW" secondAttribute="top" id="qr4-5A-fe6"/>
-                                    <constraint firstItem="wh4-yQ-JQQ" firstAttribute="leading" secondItem="P20-6Q-TWW" secondAttribute="leading" constant="-4" id="xVs-zd-NtQ">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                                    </constraint>
-                                </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="wh4-yQ-JQQ"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="VIA-j4-T1F"/>
-                                        <exclude reference="oUf-P2-V9x"/>
-                                        <exclude reference="qr4-5A-fe6"/>
-                                        <exclude reference="xVs-zd-NtQ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="wh4-yQ-JQQ"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="VIA-j4-T1F"/>
-                                        <include reference="oUf-P2-V9x"/>
-                                        <include reference="qr4-5A-fe6"/>
-                                        <include reference="xVs-zd-NtQ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -427,11 +410,13 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Efu-g6-iN0">
                                         <rect key="frame" x="-60" y="-14" width="121" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="121" id="qA7-TW-4cE"/>
+                                            <constraint firstAttribute="width" constant="121" id="qA7-TW-4cE">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                            </constraint>
                                         </constraints>
                                         <segments>
-                                            <segment title="Coll"/>
-                                            <segment title="Table"/>
+                                            <segment title="" image="grid"/>
+                                            <segment title="" image="listIcon"/>
                                         </segments>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -478,21 +463,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="P20-6Q-TWW" firstAttribute="top" secondItem="eGf-ic-Qe1" secondAttribute="bottom" constant="40" id="3Xp-oI-Aii">
-                                <variation key="heightClass=regular-widthClass=compact" constant="39"/>
-                            </constraint>
                             <constraint firstItem="oeN-Ux-3cI" firstAttribute="bottom" secondItem="Dgq-3n-UB5" secondAttribute="bottomMargin" id="5ec-AI-ody"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P20-6Q-TWW" secondAttribute="trailing" id="7KV-LN-6SY">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-22"/>
-                            </constraint>
+                            <constraint firstItem="P20-6Q-TWW" firstAttribute="top" secondItem="oeN-Ux-3cI" secondAttribute="top" id="JYw-3N-kzb"/>
+                            <constraint firstItem="P20-6Q-TWW" firstAttribute="centerX" secondItem="oeN-Ux-3cI" secondAttribute="centerX" id="QPF-4y-in6"/>
                             <constraint firstItem="oeN-Ux-3cI" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leadingMargin" constant="-20" id="SPK-D4-BIJ"/>
+                            <constraint firstItem="P20-6Q-TWW" firstAttribute="bottom" secondItem="W3z-nT-Oiy" secondAttribute="top" id="Zfm-Mo-95P"/>
                             <constraint firstItem="mAb-Iy-skU" firstAttribute="top" secondItem="eGf-ic-Qe1" secondAttribute="bottom" id="e1C-bt-ig0"/>
+                            <constraint firstItem="P20-6Q-TWW" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leadingMargin" constant="-23" id="e1S-mq-NWe"/>
                             <constraint firstItem="oeN-Ux-3cI" firstAttribute="top" secondItem="eGf-ic-Qe1" secondAttribute="bottom" constant="39" id="gFk-a5-rKe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oeN-Ux-3cI" secondAttribute="trailing" constant="-20" id="i2U-O4-Exm"/>
-                            <constraint firstItem="P20-6Q-TWW" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leadingMargin" constant="-23" id="izy-AR-RhN"/>
                             <constraint firstItem="mAb-Iy-skU" firstAttribute="top" secondItem="eGf-ic-Qe1" secondAttribute="bottom" id="nSh-2S-Cug"/>
                             <constraint firstItem="mAb-Iy-skU" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leading" id="oC0-aa-F4g"/>
-                            <constraint firstAttribute="bottom" secondItem="P20-6Q-TWW" secondAttribute="bottom" id="wD5-rK-Rld"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mAb-Iy-skU" secondAttribute="trailing" constant="-25" id="x0C-rL-ESD"/>
                         </constraints>
                         <variation key="default">
@@ -502,10 +483,6 @@
                                 <exclude reference="mAb-Iy-skU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3Xp-oI-Aii"/>
-                                <exclude reference="7KV-LN-6SY"/>
-                                <exclude reference="izy-AR-RhN"/>
-                                <exclude reference="wD5-rK-Rld"/>
                                 <exclude reference="e1C-bt-ig0"/>
                                 <exclude reference="nSh-2S-Cug"/>
                                 <exclude reference="oC0-aa-F4g"/>
@@ -514,6 +491,10 @@
                                 <exclude reference="SPK-D4-BIJ"/>
                                 <exclude reference="gFk-a5-rKe"/>
                                 <exclude reference="i2U-O4-Exm"/>
+                                <exclude reference="JYw-3N-kzb"/>
+                                <exclude reference="QPF-4y-in6"/>
+                                <exclude reference="Zfm-Mo-95P"/>
+                                <exclude reference="e1S-mq-NWe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -523,10 +504,6 @@
                                 <include reference="mAb-Iy-skU"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3Xp-oI-Aii"/>
-                                <include reference="7KV-LN-6SY"/>
-                                <include reference="izy-AR-RhN"/>
-                                <include reference="wD5-rK-Rld"/>
                                 <include reference="e1C-bt-ig0"/>
                                 <include reference="nSh-2S-Cug"/>
                                 <include reference="oC0-aa-F4g"/>
@@ -535,6 +512,10 @@
                                 <include reference="SPK-D4-BIJ"/>
                                 <include reference="gFk-a5-rKe"/>
                                 <include reference="i2U-O4-Exm"/>
+                                <include reference="JYw-3N-kzb"/>
+                                <include reference="QPF-4y-in6"/>
+                                <include reference="Zfm-Mo-95P"/>
+                                <include reference="e1S-mq-NWe"/>
                             </mask>
                         </variation>
                     </view>
@@ -711,5 +692,7 @@
     <resources>
         <image name="beige-powder-detail" width="300" height="300"/>
         <image name="glassjar" width="100" height="132"/>
+        <image name="grid" width="60" height="60"/>
+        <image name="listIcon" width="60" height="60"/>
     </resources>
 </document>

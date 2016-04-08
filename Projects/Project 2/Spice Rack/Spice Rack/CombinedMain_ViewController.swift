@@ -70,7 +70,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SpiceJar_CollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)  as! SpiceJar_CollectionViewCell
         
         let spice = currentRack[indexPath.row]
         let spiceName = spice.name.capitalizedString
@@ -104,6 +104,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         mask.frame.size = CGSize(width: 95, height: 134)
         
         
+        //this line is needed for the cell size to initalize correctly on the first load of the thread. IDK why...
+        cell.layoutIfNeeded()
         return cell
     }
     
@@ -126,7 +128,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         let spiceName = spice.name.capitalizedString
         let percentRemaining = spice.percentageRemaining
         
-        
+        //Labels
         cell.textLabel?.text = spiceName
         cell.detailTextLabel?.text = "\(percentRemaining)%"
         cell.detailTextLabel?.textColor = UIColor.blackColor()
@@ -135,6 +137,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
             cell.detailTextLabel?.textColor = UIColor.redColor()
         }
         
+        //background image
         if let image = spice.imageName{
             let bgImage = UIImage(named: image)
             let bgImageView = UIImageView(image: bgImage)
@@ -145,6 +148,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
             
             bgImageView.addSubview(effectView)
             cell.backgroundView = bgImageView
+            
+            
         }
         
         return cell
@@ -160,6 +165,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         let shelf = UIImage(named: "newshelf.jpg")
         self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
+        readAndUpdate()
         
     }
     

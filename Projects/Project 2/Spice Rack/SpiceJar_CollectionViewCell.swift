@@ -13,4 +13,5 @@ class SpiceJar_CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var jarImageView: UIImageView!
     @IBOutlet weak var spiceTextureImage: UIImageView!
     @IBOutlet weak var spiceNameLabel: UILabel!
+    
 }
