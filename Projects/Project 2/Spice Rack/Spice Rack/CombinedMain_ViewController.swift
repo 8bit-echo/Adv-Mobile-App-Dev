@@ -9,21 +9,27 @@
 import UIKit
 import RealmSwift
 
-class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+//https://www.raywenderlich.com/113772/uisearchcontroller-tutorial
+
+class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
     let database = try! Realm()
     let reuseIdentifier = "spiceCell"
     var spicetoDetail : Spice?
     var currentRack : Results<Spice>!
+    var allSpices = [Spice]()
     var sortedbyRunningLow : Results<Spice>!
+    var searchResults = [Spice]()
     
+    // Interface
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
     
     //Views
     @IBOutlet weak var collectionParent: UIView!
     @IBOutlet weak var tableParent: UIView!
-    @IBOutlet weak var segmentParent: UIView!
+    //@IBOutlet weak var segmentParent: UIView!
     @IBOutlet weak var segmentBar: UISegmentedControl!
     
     
@@ -41,17 +47,14 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         if selectedSegment == 0 {
             collectionParent.hidden = false
             tableParent.hidden = true
-            segmentParent.backgroundColor = UIColor.clearColor()
-            segmentBar.tintColor = UIColor.whiteColor()
-            
-            navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
-            navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.blueColor()
+            //segmentParent.backgroundColor = UIColor.clearColor()
+            //segmentBar.tintColor = UIColor.whiteColor()
         }else if selectedSegment == 1{
             collectionParent.hidden = true
             tableParent.hidden = false
-            segmentParent.backgroundColor = UIColor.clearColor()
-            segmentBar.tintColor = UIColor.whiteColor()
+            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+            //segmentParent.backgroundColor = UIColor.clearColor()
+            //segmentBar.tintColor = UIColor.whiteColor()
 //            navigationController?.navigationBar.barTintColor = UIColor.clearColor()
 //            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 //            navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
@@ -65,6 +68,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     func readAndUpdate(){
         currentRack = database.objects(Spice)
         currentRack = currentRack.sorted("name")
+        allSpices = Array(currentRack)
         
         sortedbyRunningLow = database.objects(Spice).filter("percentageRemaining <= 10.0").sorted("name")
         print(sortedbyRunningLow.count)
@@ -72,6 +76,23 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
         collectionView?.reloadData()
         tableView.reloadData()
+    }
+    func buildSearchBar(){
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+    }
+    func setCollectionViewBackground(imageName : String){
+        let shelf = UIImage(named: imageName)
+        self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
+    }
+    func designUI(){
+//        navigationController?.navigationBar.barTintColor = UIColor.customGreenColor()
+//        navigationController?.navigationBar.tintColor = UIColor.customGreenColor()
+//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.customGreenColor()]
+//        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.customGreenColor()
     }
     
     // MARK: CollectionView Requirements
@@ -134,13 +155,22 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != ""{
+            return searchResults.count
+        }
             return currentRack.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SpiceTableViewCell
         
-        let spice = currentRack[indexPath.row]
+        var spice : Spice
+        //search
+        if searchController.active && searchController.searchBar.text != "" {
+            spice = searchResults[indexPath.row]
+        } else {
+            spice = allSpices[indexPath.row]
+        }
         let spiceName = spice.name.capitalizedString
         let percentRemaining = spice.percentageRemaining.roundToPlaces(2)
         
@@ -170,6 +200,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
             cell.backgroundView = bgImageView
         }
         
+        
         return cell
     }
     
@@ -178,16 +209,21 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         performSegueWithIdentifier("showDetails", sender: nil)
     }
     
+    //search
+    func filterContentForSearchText(searchText : String, scope : String = "All"){
+        searchResults = Array(currentRack).filter { spice in
+            return spice.name.lowercaseString.containsString(searchText.lowercaseString)}
+        tableView.reloadData()
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let shelf = UIImage(named: "newshelf.jpg")
-        self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
+        setCollectionViewBackground("darkshelf")
         readAndUpdate()
-        print("CombinedMainVC readAndUpdate from viewDidLoad()")
-        segmentBar.tintColor = UIColor.whiteColor()
-        tableView.backgroundColor = UIColor.blackColor()
-        
+        buildSearchBar()
+        designUI()
         
     }
     
@@ -207,4 +243,13 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         // Pass the selected object to the new view controller.
     }
     
+}
+
+
+
+//Extends main ViewController for search Functionality
+extension CombinedMain_ViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }

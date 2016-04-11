@@ -151,16 +151,16 @@
                                 <exclude reference="TL0-5g-LJK"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ogc-WT-zAd"/>
                                 <exclude reference="EOa-Mo-xX0"/>
                                 <exclude reference="KFG-fE-Fzn"/>
                                 <exclude reference="ntT-nY-mAe"/>
                                 <exclude reference="2pu-TV-Nrf"/>
+                                <exclude reference="b6E-yK-7PG"/>
+                                <exclude reference="c7E-RB-bY9"/>
                                 <exclude reference="68v-8k-zML"/>
                                 <exclude reference="O9E-LT-C0G"/>
                                 <exclude reference="XP5-mg-Ed2"/>
-                                <exclude reference="ogc-WT-zAd"/>
-                                <exclude reference="b6E-yK-7PG"/>
-                                <exclude reference="c7E-RB-bY9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -169,20 +169,20 @@
                                 <include reference="TL0-5g-LJK"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ogc-WT-zAd"/>
                                 <include reference="EOa-Mo-xX0"/>
                                 <include reference="KFG-fE-Fzn"/>
                                 <include reference="ntT-nY-mAe"/>
                                 <include reference="2pu-TV-Nrf"/>
+                                <exclude reference="M5L-mV-MOC"/>
+                                <include reference="b6E-yK-7PG"/>
+                                <include reference="c7E-RB-bY9"/>
                                 <include reference="68v-8k-zML"/>
                                 <exclude reference="Lpa-vt-pe9"/>
                                 <include reference="O9E-LT-C0G"/>
                                 <include reference="XP5-mg-Ed2"/>
                                 <exclude reference="ZHc-9a-aOX"/>
                                 <exclude reference="hOD-nU-MfO"/>
-                                <include reference="ogc-WT-zAd"/>
-                                <exclude reference="M5L-mV-MOC"/>
-                                <include reference="b6E-yK-7PG"/>
-                                <include reference="c7E-RB-bY9"/>
                             </mask>
                         </variation>
                     </view>
@@ -229,7 +229,7 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mi9-Cl-9vn">
                                             <size key="itemSize" width="102" height="132"/>
-                                            <size key="headerReferenceSize" width="0.0" height="30"/>
+                                            <size key="headerReferenceSize" width="50" height="32"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
@@ -337,7 +337,7 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dontUseMe" id="Xh0-Q5-6Uy">
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dontUseMe" id="fen-df-f48">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionReusableView>
                                         <connections>
@@ -351,7 +351,7 @@
                                     <constraint firstAttribute="bottom" secondItem="wh4-yQ-JQQ" secondAttribute="bottom" id="27J-T1-as9"/>
                                     <constraint firstItem="wh4-yQ-JQQ" firstAttribute="top" secondItem="P20-6Q-TWW" secondAttribute="top" id="C1y-Xr-oRK"/>
                                     <constraint firstItem="wh4-yQ-JQQ" firstAttribute="leading" secondItem="P20-6Q-TWW" secondAttribute="leading" id="R7f-c2-qKh"/>
-                                    <constraint firstAttribute="trailing" secondItem="wh4-yQ-JQQ" secondAttribute="trailing" constant="-13" id="juV-HP-72z"/>
+                                    <constraint firstAttribute="trailing" secondItem="wh4-yQ-JQQ" secondAttribute="trailing" id="v7T-fG-QoB"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -361,7 +361,7 @@
                                         <exclude reference="27J-T1-as9"/>
                                         <exclude reference="C1y-Xr-oRK"/>
                                         <exclude reference="R7f-c2-qKh"/>
-                                        <exclude reference="juV-HP-72z"/>
+                                        <exclude reference="v7T-fG-QoB"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -372,7 +372,7 @@
                                         <include reference="27J-T1-as9"/>
                                         <include reference="C1y-Xr-oRK"/>
                                         <include reference="R7f-c2-qKh"/>
-                                        <include reference="juV-HP-72z"/>
+                                        <include reference="v7T-fG-QoB"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -381,7 +381,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3gX-XT-5oS">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spiceCell" rowHeight="73" id="BWl-Dd-xfB" customClass="SpiceTableViewCell" customModule="Spice_Rack" customModuleProvider="target">
@@ -458,7 +458,7 @@
                                                         </mask>
                                                     </variation>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="customDetailTextLabel" destination="4jP-5w-Jh5" id="3VR-pB-Noo"/>
                                                     <outlet property="customTextLabel" destination="4xk-pa-xCx" id="rG6-qG-yS5"/>
@@ -503,74 +503,14 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAb-Iy-skU" userLabel="SegmentParent">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Efu-g6-iN0">
-                                        <rect key="frame" x="-60" y="-14" width="121" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="72" id="ZEB-BG-FSz"/>
-                                            <constraint firstAttribute="height" constant="28" id="ylx-pQ-52t"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="" image="grid"/>
-                                            <segment title="" image="listIcon"/>
-                                        </segments>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="ZEB-BG-FSz"/>
-                                                <exclude reference="ylx-pQ-52t"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="ZEB-BG-FSz"/>
-                                                <include reference="ylx-pQ-52t"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="segmentSelectionChanged:" destination="usK-xD-ivg" eventType="valueChanged" id="EPZ-fp-bfY"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Efu-g6-iN0" firstAttribute="top" secondItem="mAb-Iy-skU" secondAttribute="top" constant="8" id="DpT-AT-4iJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="Efu-g6-iN0" secondAttribute="bottom" constant="6" id="OMe-VY-P4J"/>
-                                    <constraint firstItem="Efu-g6-iN0" firstAttribute="leading" secondItem="mAb-Iy-skU" secondAttribute="leading" constant="8" id="ZF9-Oz-DHs"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="Efu-g6-iN0"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="DpT-AT-4iJ"/>
-                                        <exclude reference="OMe-VY-P4J"/>
-                                        <exclude reference="ZF9-Oz-DHs"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="Efu-g6-iN0"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="DpT-AT-4iJ"/>
-                                        <include reference="OMe-VY-P4J"/>
-                                        <include reference="ZF9-Oz-DHs"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oeN-Ux-3cI" firstAttribute="bottom" secondItem="W3z-nT-Oiy" secondAttribute="top" id="3PC-Vt-G4k"/>
                             <constraint firstItem="P20-6Q-TWW" firstAttribute="centerX" secondItem="oeN-Ux-3cI" secondAttribute="centerX" id="6cd-hg-6yO"/>
-                            <constraint firstItem="mAb-Iy-skU" firstAttribute="leading" secondItem="oeN-Ux-3cI" secondAttribute="leading" id="7yV-93-ZxK"/>
+                            <constraint firstItem="P20-6Q-TWW" firstAttribute="centerX" secondItem="Dgq-3n-UB5" secondAttribute="centerX" id="9f7-0j-T4G"/>
                             <constraint firstAttribute="trailing" secondItem="oeN-Ux-3cI" secondAttribute="trailing" id="DFY-vA-ChL"/>
-                            <constraint firstItem="mAb-Iy-skU" firstAttribute="top" secondItem="P20-6Q-TWW" secondAttribute="top" id="JGx-dx-SYI"/>
-                            <constraint firstItem="mAb-Iy-skU" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leading" id="JtL-ID-SzP"/>
                             <constraint firstItem="P20-6Q-TWW" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leadingMargin" constant="-23" id="WGL-JX-qgy"/>
-                            <constraint firstItem="mAb-Iy-skU" firstAttribute="trailing" secondItem="oeN-Ux-3cI" secondAttribute="trailing" id="Wbp-DC-R6m"/>
                             <constraint firstItem="P20-6Q-TWW" firstAttribute="top" secondItem="eGf-ic-Qe1" secondAttribute="bottom" id="cuo-ex-b2A"/>
                             <constraint firstItem="oeN-Ux-3cI" firstAttribute="top" secondItem="eGf-ic-Qe1" secondAttribute="bottom" constant="39" id="eLX-M8-bTV"/>
                             <constraint firstItem="P20-6Q-TWW" firstAttribute="leading" secondItem="Dgq-3n-UB5" secondAttribute="leadingMargin" constant="-16" id="mhb-nF-zz4"/>
@@ -581,19 +521,15 @@
                             <mask key="subviews">
                                 <exclude reference="P20-6Q-TWW"/>
                                 <exclude reference="oeN-Ux-3cI"/>
-                                <exclude reference="mAb-Iy-skU"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6cd-hg-6yO"/>
+                                <exclude reference="9f7-0j-T4G"/>
                                 <exclude reference="WGL-JX-qgy"/>
                                 <exclude reference="cuo-ex-b2A"/>
                                 <exclude reference="mhb-nF-zz4"/>
                                 <exclude reference="nDS-4U-Kxw"/>
                                 <exclude reference="tan-MY-d2o"/>
-                                <exclude reference="7yV-93-ZxK"/>
-                                <exclude reference="JGx-dx-SYI"/>
-                                <exclude reference="JtL-ID-SzP"/>
-                                <exclude reference="Wbp-DC-R6m"/>
                                 <exclude reference="3PC-Vt-G4k"/>
                                 <exclude reference="DFY-vA-ChL"/>
                                 <exclude reference="eLX-M8-bTV"/>
@@ -603,19 +539,15 @@
                             <mask key="subviews">
                                 <include reference="P20-6Q-TWW"/>
                                 <include reference="oeN-Ux-3cI"/>
-                                <include reference="mAb-Iy-skU"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="6cd-hg-6yO"/>
+                                <include reference="9f7-0j-T4G"/>
                                 <exclude reference="WGL-JX-qgy"/>
                                 <include reference="cuo-ex-b2A"/>
                                 <include reference="mhb-nF-zz4"/>
                                 <include reference="nDS-4U-Kxw"/>
                                 <exclude reference="tan-MY-d2o"/>
-                                <include reference="7yV-93-ZxK"/>
-                                <include reference="JGx-dx-SYI"/>
-                                <include reference="JtL-ID-SzP"/>
-                                <include reference="Wbp-DC-R6m"/>
                                 <include reference="3PC-Vt-G4k"/>
                                 <include reference="DFY-vA-ChL"/>
                                 <include reference="eLX-M8-bTV"/>
@@ -623,6 +555,20 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="My Spice Rack" id="o6U-yP-vgd">
+                        <barButtonItem key="leftBarButtonItem" id="XTh-zb-YKM">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="Efu-g6-iN0">
+                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <segments>
+                                    <segment title="" image="grid" width="36"/>
+                                    <segment title="" image="listIcon" width="35.5"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentSelectionChanged:" destination="usK-xD-ivg" eventType="valueChanged" id="EPZ-fp-bfY"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="frs-wb-MyV">
                             <connections>
                                 <segue destination="9FC-7B-STu" kind="show" id="LiQ-uV-c33"/>
@@ -633,7 +579,6 @@
                         <outlet property="collectionParent" destination="P20-6Q-TWW" id="1V0-w5-SZY"/>
                         <outlet property="collectionView" destination="wh4-yQ-JQQ" id="uv6-MR-zv4"/>
                         <outlet property="segmentBar" destination="Efu-g6-iN0" id="eQC-1p-nUd"/>
-                        <outlet property="segmentParent" destination="mAb-Iy-skU" id="mQ6-Vc-Qsx"/>
                         <outlet property="tableParent" destination="oeN-Ux-3cI" id="Wwe-73-XIb"/>
                         <outlet property="tableView" destination="3gX-XT-5oS" id="Nzw-CC-EEX"/>
                         <segue destination="cxV-lF-RBc" kind="show" identifier="showDetails" id="NTE-Eh-Lrl"/>
