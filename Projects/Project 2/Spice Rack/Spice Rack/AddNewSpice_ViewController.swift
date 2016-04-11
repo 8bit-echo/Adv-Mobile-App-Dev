@@ -76,77 +76,94 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 newSpice.brand = definiteBrand
             }
 
-            //purchase and exp date
+                
+                //Handle Spice Image
+                switch newSpice.name.lowercaseString {
+                    
+                case "bay leaves", "bay leaf":
+                    newSpice.imageName = "bay-leaves"
+                    
+                case "beige", "ground mustard", "french fry seasoning", "ground ginger", "ground cardamom", "cardamom":
+                    newSpice.imageName = "beige-powder"
+                    
+                case "brown sugar":
+                    newSpice.imageName = "brown-sugar"
+                    
+                case "pumpkin pie spice", "ground nutmeg", "nutmeg":
+                    newSpice.imageName = "burnt-orange-powder"
+                    
+                case "cajun", "cajun seasoning", "crushed red pepper", "red pepper", "cajun creole seasoning", "rub seasoning":
+                    newSpice.imageName = "cajun"
+                    
+                case "cinnamon sticks":
+                    newSpice.imageName = "cinnamon-sticks"
+                    
+                case "coffee", "cloves", "ground cloves", "crushed cloves":
+                    newSpice.imageName = "dark-brown-powder"
+                    
+                case "peppercorns", "black peppercorns","whole cardamom seeds":
+                    newSpice.imageName = "dark-peppercorns"
+                    
+                case "red", "ancho chili pepper", "chili powder" :
+                    newSpice.imageName = "dark-red-powder"
+                    
+                case "italian blend", "italian seasoning", "zesty seasoning blend", "zesty seasoning":
+                    newSpice.imageName = "dead-leafy"
+                    
+                case "fennel seed":
+                    newSpice.imageName = "fennel-seed"
+                    
+                case "oregano", "dill weed", "parsley", "parsley flakes", "thyme", "thyme leaves":
+                    newSpice.imageName = "green-leafy"
+                    
+                case "cinnamon", "allspice", "garam masala":
+                    newSpice.imageName = "light-brown-powder"
+                    
+                case "garlic", "garlic powder", "garlic bread sprinkle":
+                    newSpice.imageName = "offwhite-powder"
+                    
+                case "curry", "curry powder", "cayenne":
+                    newSpice.imageName = "orange-powder"
+                    
+                case "paprika", "smoked paprika", "chipotle chile pepper":
+                    newSpice.imageName = "red-powder"
+                    
+                case "rosemary", "rosemary leaves":
+                    newSpice.imageName = "rosemary"
+                    
+                case "pepper", "black ground pepper":
+                    newSpice.imageName = "pepper"
+                    
+                case "saffron":
+                    newSpice.imageName = "saffron"
+                    
+                case "salt", "granulated onion":
+                    newSpice.imageName = "white-crystal"
+                
+                case "star anise":
+                    newSpice.imageName = "star-anise"
+                    
+                case "sugar", "garlic salt", "cream of tartar", "ranch powder":
+                    newSpice.imageName = "white-powder"
+                    
+                case "whole cloves":
+                    newSpice.imageName = "whole-cloves"
+                    
+                case "coriander", "poultry seasoning", "ground sage", "ground coriander", "ground coriander seed":
+                    newSpice.imageName = "yellow-green"
+                    
+                case "mustard", "cumin", "tumeric":
+                    newSpice.imageName = "yellow-powder"
+                    
+                default:
+                    newSpice.imageName = String()
+                    
+//            case "":
+//                  newSpice.imageName = ""
+                }
             
+
             
-            //Handle Spice Image
-            switch newSpice.name.lowercaseString {
-                
-            case "beige":
-                newSpice.imageName = "beige-powder"
-                
-            case "brown sugar":
-                newSpice.imageName = "brown-sugar"
-                
-            case "cajun":
-                newSpice.imageName = "cajun"
-                
-            case "cinnamon sticks":
-                newSpice.imageName = "cinnamon-sticks"
-                
-            case "coffee":
-                newSpice.imageName = "dark-brown-powder"
-                
-            case "pepper", "black pepper", "peppercorns":
-                newSpice.imageName = "dark-peppercorns"
-                
-            case "red" :
-                newSpice.imageName = "dark-red-powder"
-                
-            case "italian blend":
-                newSpice.imageName = "dead-leafy"
-                
-            case "oregano":
-                newSpice.imageName = "green-leafy"
-                
-            case "cloves", "ground cloves", "crushed cloves", "cinnamon", "allspice":
-                newSpice.imageName = "light-brown-powder"
-                
-            case "garlic", "garlic powder":
-                newSpice.imageName = "offwhite-powder"
-                
-            case "curry", "curry powder", "cayenne":
-                newSpice.imageName = "orange-powder"
-                
-            case "paprika":
-                newSpice.imageName = "red-powder"
-            case "pepper":
-                newSpice.imageName = "pepper"
-                
-            case "saffron":
-                newSpice.imageName = "saffron"
-                
-            case "salt":
-                newSpice.imageName = "white-crystal"
-                
-            case "sugar", "garlic salt":
-                newSpice.imageName = "white-powder"
-                
-            case "whole cloves":
-                newSpice.imageName = "whole-cloves"
-                
-            case "coriander":
-                newSpice.imageName = "yellow-green"
-                
-            case "mustard", "cumin":
-                newSpice.imageName = "yellow-powder"
-                
-            default:
-                newSpice.imageName = String()
-                
-                //            case "":
-                //                newSpice.imageName = ""
-            }
             
             try! database.write({database.add(newSpice)})
             
@@ -162,6 +179,8 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         
     }
     
+    
+    // Mark: - My functions
     
     // MARK: - Included
     override func viewDidLoad() {

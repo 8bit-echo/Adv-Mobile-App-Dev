@@ -44,9 +44,11 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         if selectedSegment == 0 {
             collectionParent.hidden = false
             tableParent.hidden = true
+            segmentBar.tintColor = UIColor.whiteColor()
         }else if selectedSegment == 1{
             collectionParent.hidden = true
             tableParent.hidden = false
+            segmentBar.tintColor = UIColor.blueColor()
         }
         readAndUpdate()
     }
@@ -126,7 +128,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
         let spice = currentRack[indexPath.row]
         let spiceName = spice.name.capitalizedString
-        let percentRemaining = spice.percentageRemaining
+        let percentRemaining = spice.percentageRemaining.roundToPlaces(2)
         
         //Labels
         cell.textLabel?.text = spiceName
@@ -166,6 +168,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         let shelf = UIImage(named: "newshelf.jpg")
         self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
         readAndUpdate()
+        segmentBar.tintColor = UIColor.whiteColor()
+        
         
     }
     
