@@ -22,6 +22,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     //Views
     @IBOutlet weak var collectionParent: UIView!
     @IBOutlet weak var tableParent: UIView!
+    @IBOutlet weak var segmentParent: UIView!
     @IBOutlet weak var segmentBar: UISegmentedControl!
     
     
@@ -44,11 +45,20 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         if selectedSegment == 0 {
             collectionParent.hidden = false
             tableParent.hidden = true
+            segmentParent.backgroundColor = UIColor.clearColor()
             segmentBar.tintColor = UIColor.whiteColor()
+            
+            navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
+            navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.blueColor()
         }else if selectedSegment == 1{
             collectionParent.hidden = true
             tableParent.hidden = false
-            segmentBar.tintColor = UIColor.blueColor()
+            segmentParent.backgroundColor = UIColor.clearColor()
+            segmentBar.tintColor = UIColor.whiteColor()
+            navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         }
         readAndUpdate()
     }
@@ -124,34 +134,44 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SpiceTableViewCell
         
         let spice = currentRack[indexPath.row]
         let spiceName = spice.name.capitalizedString
         let percentRemaining = spice.percentageRemaining.roundToPlaces(2)
         
         //Labels
-        cell.textLabel?.text = spiceName
-        cell.detailTextLabel?.text = "\(percentRemaining)%"
-        cell.detailTextLabel?.textColor = UIColor.blackColor()
+        cell.customTextLabel?.text = spiceName
+        cell.customTextLabel?.textColor = UIColor.whiteColor()
+        cell.customDetailTextLabel?.text = "\(percentRemaining)%"
+        cell.customDetailTextLabel?.textColor = UIColor.whiteColor()
         
         if spice.percentageRemaining <= 10 {
-            cell.detailTextLabel?.textColor = UIColor.redColor()
+            cell.customDetailTextLabel?.textColor = UIColor.redColor()
         }
         
         //background image
         if let image = spice.imageName{
-            let bgImage = UIImage(named: image)
+            let bgImage = UIImage(named:"\(image)-detail")
             let bgImageView = UIImageView(image: bgImage)
+            bgImageView.contentMode = UIViewContentMode.ScaleAspectFill
             
-            let blur = UIBlurEffect(style: .Light)
-            let effectView = UIVisualEffectView.init(effect: blur)
-            effectView.frame = self.view.frame
+//            let blur = UIBlurEffect(style: .Dark)
+//            let effectView = UIVisualEffectView.init(effect: blur)
+//            effectView.frame = self.view.frame
+//            effectView.frame.offsetInPlace(dx: -(CGFloat((100 - spice.percentageRemaining))/100) * CGFloat(self.view.frame.width), dy: 0)
             
-            bgImageView.addSubview(effectView)
+            //playing with effects
+            let darkFilterView = UIView()
+            darkFilterView.backgroundColor = UIColor.blackColor()
+            darkFilterView.frame = self.view.frame
+            darkFilterView.alpha = 0.6
+            
+            //print("\(spice.name) has \(spice.percentageRemaining)%. offset calculated to be \((CGFloat((100 - spice.percentageRemaining))/100) * CGFloat(effectView.frame.width)) / \(effectView.frame.width))")
+            
+            //bgImageView.addSubview(effectView)
+            bgImageView.addSubview(darkFilterView)
             cell.backgroundView = bgImageView
-            
-            
         }
         
         return cell

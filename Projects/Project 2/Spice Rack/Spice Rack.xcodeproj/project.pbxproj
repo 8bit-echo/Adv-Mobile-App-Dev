@@ -23,6 +23,7 @@
 		F09DCC8E1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC8D1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift */; };
 		F09DCC931C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC921C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift */; };
 		F09DCC951C865566006F8DAA /* SpiceDetails_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09DCC941C865566006F8DAA /* SpiceDetails_ViewController.swift */; };
+		F0E110D61CBB4EC900A70DC5 /* SpiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E110D51CBB4EC900A70DC5 /* SpiceTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		F09DCC8D1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewSpice_ViewController.swift; sourceTree = "<group>"; };
 		F09DCC921C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpiceJar_CollectionViewCell.swift; path = ../SpiceJar_CollectionViewCell.swift; sourceTree = "<group>"; };
 		F09DCC941C865566006F8DAA /* SpiceDetails_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiceDetails_ViewController.swift; sourceTree = "<group>"; };
+		F0E110D51CBB4EC900A70DC5 /* SpiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiceTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				F09DCC891C85FA8E006F8DAA /* Spice.swift */,
 				F09DCC471C85F8AE006F8DAA /* AppDelegate.swift */,
 				F09DCC4B1C85F8AE006F8DAA /* Main.storyboard */,
+				F0E110D51CBB4EC900A70DC5 /* SpiceTableViewCell.swift */,
 				F00E02B21CB4D6B50018BBF3 /* CombinedMain_ViewController.swift */,
 				F09DCC941C865566006F8DAA /* SpiceDetails_ViewController.swift */,
 				F09DCC8D1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift */,
@@ -317,6 +320,7 @@
 			files = (
 				F09DCC8E1C85FFBB006F8DAA /* AddNewSpice_ViewController.swift in Sources */,
 				F09DCC931C863AA3006F8DAA /* SpiceJar_CollectionViewCell.swift in Sources */,
+				F0E110D61CBB4EC900A70DC5 /* SpiceTableViewCell.swift in Sources */,
 				F09DCC951C865566006F8DAA /* SpiceDetails_ViewController.swift in Sources */,
 				F09DCC481C85F8AE006F8DAA /* AppDelegate.swift in Sources */,
 				F09DCC8C1C85FBF1006F8DAA /* SpiceRack-CollectionViewController.swift in Sources */,
