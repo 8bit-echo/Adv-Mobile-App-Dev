@@ -15,6 +15,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     let reuseIdentifier = "spiceCell"
     var spicetoDetail : Spice?
     var currentRack : Results<Spice>!
+    var sortedbyRunningLow : Results<Spice>!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -28,13 +29,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     
     // MARK: - IBActions
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
-        
-        if segue.identifier == "doneSegue"{
-            readAndUpdate()
-            
-        }else{
-            readAndUpdate()
-        }
+        readAndUpdate()
+        print("CombinedMainVC readAndUpdate from unwindSegue()")
         
     }
     @IBAction func doneSegue(segue: UIStoryboardSegue){
@@ -56,24 +52,27 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
             tableParent.hidden = false
             segmentParent.backgroundColor = UIColor.clearColor()
             segmentBar.tintColor = UIColor.whiteColor()
-            navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-            navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+//            navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+//            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//            navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         }
         readAndUpdate()
+        print("CombinedMainVC readAndUpdate from segmentSelectionChanged()")
     }
     
     
     // MARK: - My Functions
     func readAndUpdate(){
         currentRack = database.objects(Spice)
+        currentRack = currentRack.sorted("name")
+        
+        sortedbyRunningLow = database.objects(Spice).filter("percentageRemaining <= 10.0").sorted("name")
+        print(sortedbyRunningLow.count)
+        
+        
         collectionView?.reloadData()
         tableView.reloadData()
     }
-    override func viewWillAppear(animated: Bool) {
-        readAndUpdate()
-    }
-    
     
     // MARK: CollectionView Requirements
     
@@ -129,8 +128,13 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     
     
     //Mark: - TableView Requirements
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentRack.count
+            return currentRack.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -143,7 +147,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         //Labels
         cell.customTextLabel?.text = spiceName
         cell.customTextLabel?.textColor = UIColor.whiteColor()
-        cell.customDetailTextLabel?.text = "\(percentRemaining)%"
+        cell.customDetailTextLabel?.text = "\(Int(percentRemaining))%"
         cell.customDetailTextLabel?.textColor = UIColor.whiteColor()
         
         if spice.percentageRemaining <= 10 {
@@ -156,20 +160,12 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
             let bgImageView = UIImageView(image: bgImage)
             bgImageView.contentMode = UIViewContentMode.ScaleAspectFill
             
-//            let blur = UIBlurEffect(style: .Dark)
-//            let effectView = UIVisualEffectView.init(effect: blur)
-//            effectView.frame = self.view.frame
-//            effectView.frame.offsetInPlace(dx: -(CGFloat((100 - spice.percentageRemaining))/100) * CGFloat(self.view.frame.width), dy: 0)
-            
-            //playing with effects
+            //dark overlay effect
             let darkFilterView = UIView()
             darkFilterView.backgroundColor = UIColor.blackColor()
             darkFilterView.frame = self.view.frame
             darkFilterView.alpha = 0.6
-            
-            //print("\(spice.name) has \(spice.percentageRemaining)%. offset calculated to be \((CGFloat((100 - spice.percentageRemaining))/100) * CGFloat(effectView.frame.width)) / \(effectView.frame.width))")
-            
-            //bgImageView.addSubview(effectView)
+
             bgImageView.addSubview(darkFilterView)
             cell.backgroundView = bgImageView
         }
@@ -188,7 +184,9 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         let shelf = UIImage(named: "newshelf.jpg")
         self.collectionView?.backgroundColor = UIColor(patternImage: shelf!)
         readAndUpdate()
+        print("CombinedMainVC readAndUpdate from viewDidLoad()")
         segmentBar.tintColor = UIColor.whiteColor()
+        tableView.backgroundColor = UIColor.blackColor()
         
         
     }

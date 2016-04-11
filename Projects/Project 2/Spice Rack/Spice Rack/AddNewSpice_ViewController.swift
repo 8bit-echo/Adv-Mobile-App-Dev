@@ -40,11 +40,11 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     // MARK: - @IBActions
     @IBAction func sliderValueChanged(sender: UISlider) {
         currentSliderValue = Int(sender.value)
-        
         percentageLabel.text = String(currentSliderValue) + "%"
         
     }
     @IBAction func showMoreOptions(sender: AnyObject) {
+        volumePicker.hidden = true
         brandTextField.hidden = false
     }
     @IBAction func doneButton(sender: UIBarButtonItem) {
@@ -157,14 +157,10 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                     
                 default:
                     newSpice.imageName = String()
-                    
-//            case "":
-//                  newSpice.imageName = ""
+
                 }
             
-
-            
-            
+    
             try! database.write({database.add(newSpice)})
             
             print("saving item \(newSpice)")
@@ -173,10 +169,10 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         }
         
     }
+    
     @IBAction func exitTap(sender: UITapGestureRecognizer) {
         spiceNameTextField.resignFirstResponder()
         volumePicker.hidden = true
-        
     }
     
     
@@ -220,13 +216,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         volumePicker.hidden = true
     }
 
-    
-    
-    
-    // MARK: - Navigation
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //      }
-    
     
     // MARK: - PickerView
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

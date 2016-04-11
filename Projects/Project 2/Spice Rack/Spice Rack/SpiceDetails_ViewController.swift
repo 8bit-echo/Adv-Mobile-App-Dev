@@ -20,6 +20,7 @@ class SpiceDetails_ViewController: UIViewController {
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var spiceImageView: UIImageView!
@@ -79,8 +80,13 @@ class SpiceDetails_ViewController: UIViewController {
     // MARK: - Included
     override func viewDidLoad() {
         super.viewDidLoad()
+        brandLabel.text = String()
         
+        //Load the data to populate the fields
         label1.text = receivedObject!.name.capitalizedString
+        if let brand = receivedObject?.brand {
+            brandLabel.text = brand
+        }
         label2.text = String(Double(receivedObject!.volumeRemaining).roundToPlaces(2))
         unitLabel.text = receivedObject?.unit
         self.view.sendSubviewToBack(spiceImageView)
@@ -88,13 +94,9 @@ class SpiceDetails_ViewController: UIViewController {
         if let image = receivedObject?.imageName {
             let imageDetail = image + "-detail.jpg"
             spiceImageView.image = UIImage(named: imageDetail)
-            
-        }else{
-            print("no image found for texture")
+
         }
-        
-        
-        
+
         //Update slider to reflect the volume left in the Spice.
         let percentageLeft = Float(receivedObject!.volumeRemaining / receivedObject!.netWt * 100)
         volumeSlider.value = percentageLeft
