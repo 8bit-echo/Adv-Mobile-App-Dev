@@ -68,3 +68,10 @@ extension UIColor{
         return color
     }
 }
+
+//Extends main ViewController for search Functionality
+extension CombinedMain_ViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}

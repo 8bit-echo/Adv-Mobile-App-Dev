@@ -205,8 +205,12 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        spicetoDetail = currentRack[indexPath.row]
-        performSegueWithIdentifier("showDetails", sender: nil)
+        if searchController.active && searchController.searchBar.text != "" {
+            spicetoDetail = searchResults[indexPath.row]
+        } else {
+            spicetoDetail = allSpices[indexPath.row]
+        }
+            performSegueWithIdentifier("showDetails", sender: nil)
     }
     
     //search
@@ -247,9 +251,4 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
 
 
 
-//Extends main ViewController for search Functionality
-extension CombinedMain_ViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
-}
+
