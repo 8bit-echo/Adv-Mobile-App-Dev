@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  Spice Rack
@@ -14,10 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch
+                UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        
         return true
     }
     
@@ -59,12 +61,17 @@ extension Double {
 extension UIColor{
     
     static func customBlueColor() -> UIColor {
-        let color = UIColor(red: 35, green: 61, blue: 115, alpha: 1)
+        let color = UIColor(red: 35/255, green: 61/255, blue: 115/255, alpha: 1)
+        return color
+    }
+    
+    static func peachColor() -> UIColor {
+        let color = UIColor(red: 1, green: 215/255, blue: 207/255, alpha: 1)
         return color
     }
     
     static func customGreenColor() -> UIColor {
-        let color = UIColor(red: 64, green: 77, blue: 39, alpha: 1)
+        let color = UIColor(red: 26/255, green: 64/255, blue: 39/255, alpha: 1)
         return color
     }
 }

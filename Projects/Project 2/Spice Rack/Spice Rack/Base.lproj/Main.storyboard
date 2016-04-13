@@ -188,22 +188,22 @@
                                 <exclude reference="TL0-5g-LJK"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ogc-WT-zAd"/>
+                                <exclude reference="gi0-os-xU1"/>
+                                <exclude reference="kAv-25-119"/>
                                 <exclude reference="luf-11-tow"/>
                                 <exclude reference="9S3-7c-bVG"/>
                                 <exclude reference="LsT-rw-Dql"/>
-                                <exclude reference="gi0-os-xU1"/>
-                                <exclude reference="kAv-25-119"/>
                                 <exclude reference="6dB-je-5S7"/>
                                 <exclude reference="bh5-AS-z6g"/>
                                 <exclude reference="p5D-8F-cyn"/>
-                                <exclude reference="j2E-pC-7Ve"/>
                                 <exclude reference="u3P-rO-bMf"/>
+                                <exclude reference="j2E-pC-7Ve"/>
+                                <exclude reference="b6E-yK-7PG"/>
+                                <exclude reference="c7E-RB-bY9"/>
                                 <exclude reference="68v-8k-zML"/>
                                 <exclude reference="O9E-LT-C0G"/>
                                 <exclude reference="XP5-mg-Ed2"/>
-                                <exclude reference="ogc-WT-zAd"/>
-                                <exclude reference="b6E-yK-7PG"/>
-                                <exclude reference="c7E-RB-bY9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -212,11 +212,12 @@
                                 <include reference="TL0-5g-LJK"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ogc-WT-zAd"/>
+                                <include reference="gi0-os-xU1"/>
+                                <include reference="kAv-25-119"/>
                                 <include reference="luf-11-tow"/>
                                 <include reference="9S3-7c-bVG"/>
                                 <include reference="LsT-rw-Dql"/>
-                                <include reference="gi0-os-xU1"/>
-                                <include reference="kAv-25-119"/>
                                 <exclude reference="50t-tm-oSX"/>
                                 <include reference="6dB-je-5S7"/>
                                 <exclude reference="Bm8-uq-vOa"/>
@@ -224,21 +225,20 @@
                                 <include reference="bh5-AS-z6g"/>
                                 <include reference="p5D-8F-cyn"/>
                                 <exclude reference="pfv-2Q-5mK"/>
-                                <exclude reference="ZRW-M9-xAs"/>
-                                <include reference="j2E-pC-7Ve"/>
                                 <exclude reference="ff6-xg-Y0y"/>
                                 <include reference="u3P-rO-bMf"/>
                                 <exclude reference="ylg-sF-tmP"/>
+                                <exclude reference="ZRW-M9-xAs"/>
+                                <include reference="j2E-pC-7Ve"/>
+                                <exclude reference="M5L-mV-MOC"/>
+                                <include reference="b6E-yK-7PG"/>
+                                <include reference="c7E-RB-bY9"/>
                                 <include reference="68v-8k-zML"/>
                                 <exclude reference="Lpa-vt-pe9"/>
                                 <include reference="O9E-LT-C0G"/>
                                 <include reference="XP5-mg-Ed2"/>
                                 <exclude reference="ZHc-9a-aOX"/>
                                 <exclude reference="hOD-nU-MfO"/>
-                                <include reference="ogc-WT-zAd"/>
-                                <exclude reference="M5L-mV-MOC"/>
-                                <include reference="b6E-yK-7PG"/>
-                                <include reference="c7E-RB-bY9"/>
                             </mask>
                         </variation>
                     </view>
@@ -285,7 +285,7 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mi9-Cl-9vn">
                                             <size key="itemSize" width="102" height="132"/>
-                                            <size key="headerReferenceSize" width="50" height="32"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
@@ -393,9 +393,6 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dontUseMe" id="fen-df-f48">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionReusableView>
                                         <connections>
                                             <outlet property="dataSource" destination="usK-xD-ivg" id="yxO-vM-B3F"/>
                                             <outlet property="delegate" destination="usK-xD-ivg" id="yH7-hq-j4o"/>
@@ -748,7 +745,7 @@
                             <outletCollection property="gestureRecognizers" destination="DcK-fz-8fC" appends="YES" id="E0m-W7-92v"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a New Spice" id="ZQE-SU-ICL">
+                    <navigationItem key="navigationItem" title="New Spice" id="ZQE-SU-ICL">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="NAe-fP-WVl">
                             <connections>
                                 <action selector="doneButton:" destination="9FC-7B-STu" id="AaU-hB-mbf"/>

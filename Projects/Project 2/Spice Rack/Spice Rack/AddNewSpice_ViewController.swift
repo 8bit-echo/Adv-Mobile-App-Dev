@@ -83,13 +83,13 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "bay leaves", "bay leaf":
                     newSpice.imageName = "bay-leaves"
                     
-                case "beige", "ground mustard", "french fry seasoning", "ground ginger", "ground cardamom", "cardamom":
+                case "beige", "mustard, ground", "french fry seasoning", "ginger, ground", "ginger", "cardamom, ground", "cardamom":
                     newSpice.imageName = "beige-powder"
                     
                 case "brown sugar":
                     newSpice.imageName = "brown-sugar"
                     
-                case "pumpkin pie spice", "ground nutmeg", "nutmeg":
+                case "pumpkin pie spice", "nutmeg, ground", "nutmeg":
                     newSpice.imageName = "burnt-orange-powder"
                     
                 case "cajun", "cajun seasoning", "crushed red pepper", "red pepper", "cajun creole seasoning", "rub seasoning":
@@ -98,10 +98,10 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "cinnamon sticks":
                     newSpice.imageName = "cinnamon-sticks"
                     
-                case "coffee", "cloves", "ground cloves", "crushed cloves":
+                case "coffee", "cloves", "cloves, ground", "cloves, crushed":
                     newSpice.imageName = "dark-brown-powder"
                     
-                case "peppercorns", "black peppercorns","whole cardamom seeds":
+                case "peppercorns", "black peppercorns","whole cardamom seeds", "cardamom seeds, whole":
                     newSpice.imageName = "dark-peppercorns"
                     
                 case "red", "ancho chili pepper", "chili powder" :
@@ -116,7 +116,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "oregano", "dill weed", "parsley", "parsley flakes", "thyme", "thyme leaves":
                     newSpice.imageName = "green-leafy"
                     
-                case "cinnamon", "allspice", "garam masala":
+                case "cinnamon", "cinnamon, ground", "allspice", "garam masala":
                     newSpice.imageName = "light-brown-powder"
                     
                 case "garlic", "garlic powder", "garlic bread sprinkle":
@@ -125,19 +125,19 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "curry", "curry powder", "cayenne":
                     newSpice.imageName = "orange-powder"
                     
-                case "paprika", "smoked paprika", "chipotle chile pepper":
+                case "paprika", "smoked paprika", "paprika, smoked", "chipotle chile pepper":
                     newSpice.imageName = "red-powder"
                     
                 case "rosemary", "rosemary leaves":
                     newSpice.imageName = "rosemary"
                     
-                case "pepper", "black ground pepper":
+                case "pepper", "black ground pepper", "pepper, ground, black", "pepper, black, ground":
                     newSpice.imageName = "pepper"
                     
                 case "saffron":
                     newSpice.imageName = "saffron"
                     
-                case "salt", "granulated onion":
+                case "salt", "granulated onion", "onion, granulated":
                     newSpice.imageName = "white-crystal"
                 
                 case "star anise":
@@ -146,17 +146,17 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "sugar", "garlic salt", "cream of tartar", "ranch powder":
                     newSpice.imageName = "white-powder"
                     
-                case "whole cloves":
+                case "whole cloves", "cloves, whole":
                     newSpice.imageName = "whole-cloves"
                     
-                case "coriander", "poultry seasoning", "ground sage", "ground coriander", "ground coriander seed":
+                case "coriander", "poultry seasoning", "ground sage","sage, ground", "ground coriander","coriander, ground", "ground coriander seed", "coriander seed, ground", "coriander seed":
                     newSpice.imageName = "yellow-green"
                     
                 case "mustard", "cumin", "tumeric":
                     newSpice.imageName = "yellow-powder"
                     
                 default:
-                    newSpice.imageName = String()
+                    newSpice.imageName = "_"
 
                 }
             
@@ -187,6 +187,8 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         volumePicker.dataSource = self
         volumePicker.hidden = true
         brandTextField.hidden = true
+        
+        //self.volumePurchasedTextField.inputView = volumePicker
     
     }
     
