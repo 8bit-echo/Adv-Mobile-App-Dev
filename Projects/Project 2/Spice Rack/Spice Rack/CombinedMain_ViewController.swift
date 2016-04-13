@@ -180,7 +180,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         mask.frame.origin = CGPoint(x: 2.0, y: 9.0)
         //modify it's vertical offset and max points.
         mask.frame.offsetInPlace(dx: 0.0, dy: CGFloat(imageOffset))
-        mask.frame.size = CGSize(width: 95, height: 134)
+        mask.frame.size = CGSize(width: 93, height: 134)
         
         
         //this line is needed for the cell size to initalize correctly on the first load of the thread. IDK why...

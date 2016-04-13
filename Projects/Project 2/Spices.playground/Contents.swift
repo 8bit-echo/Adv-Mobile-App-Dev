@@ -84,6 +84,49 @@ for spice in mySpiceRack{
 }
 
 
+func convertToGrams (ounces: Double) -> [Character]{
+    //1oz = 28.35g
+    let g = ounces * 28.35
+    let limitedg = g.roundToPlaces(1)
+    let gString = String(limitedg)
+    
+    let separatedComponents = Array(gString.characters)
+    var finalComponents = [String]()
+    
+    for char in separatedComponents{
+        let new = String(char)
+        finalComponents.append(new)
+    }
+    
+    finalComponents.append("g")
+    
+    return separatedComponents
+}
+
+func convertToOunces (grams: Double) -> [String]{
+    // 1g = .035oz
+    let oz = grams * 0.035
+    let limitedOz = oz.roundToPlaces(1)
+    let ozString = String(limitedOz)
+    
+    
+    let separatedComponents = Array(ozString.characters)
+    var finalComponents = [String]()
+    
+    for char in separatedComponents{
+        let new = String(char)
+        finalComponents.append(new)
+    }
+    
+    finalComponents.append("oz")
+    
+    return finalComponents
+}
+convertToGrams(3.5)
+
+convertToOunces(75.0)
+
+
 
 
 

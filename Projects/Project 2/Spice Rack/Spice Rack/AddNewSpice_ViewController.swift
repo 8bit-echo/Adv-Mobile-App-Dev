@@ -21,7 +21,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var spiceNameTextField: UITextField!
     @IBOutlet weak var volumePurchasedTextField: UITextField!
-    @IBOutlet weak var volumePicker: UIPickerView!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var percentageLabel: UILabel!
     let numbers = ["",0,1,2,3,4,5,6,7,8,9]
@@ -31,6 +30,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     var fullVolumeString = String()
     var userUnit = String()
     var userVolume = Double()
+    var volumePicker = UIPickerView(frame: CGRectMake(0, 50, 100, 200))
     
     // Mark: - Optional properties
     @IBOutlet weak var brandTextField: UITextField!
@@ -169,7 +169,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         }
         
     }
-    
     @IBAction func exitTap(sender: UITapGestureRecognizer) {
         spiceNameTextField.resignFirstResponder()
         volumePicker.hidden = true
@@ -178,19 +177,77 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     
     // Mark: - My functions
     
+    func buildInputView(){
+                
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor.customGreenColor()
+        toolBar.sizeToFit()
+        
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddNewSpice_ViewController.dismissPicker))
+        
+        toolBar.setItems([spaceButton,doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        
+        volumePurchasedTextField.inputView = volumePicker
+        volumePurchasedTextField.inputAccessoryView = toolBar
+    }
+    func dismissPicker(){
+        volumePurchasedTextField.resignFirstResponder()
+    }
+    func convertToGrams (ounces: Double) -> [String]{
+        //1oz = 28.35g
+        let g = ounces * 28.35
+        let limitedg = g.roundToPlaces(1)
+        let gString = String(limitedg)
+        let separatedComponents = Array(gString.characters)
+        var finalComponents = [String]()
+        
+        for char in separatedComponents{
+            let new = String(char)
+            finalComponents.append(new)
+        }
+        
+        finalComponents.append("g")
+        
+        return finalComponents
+    }
+    func convertToOunces (grams: Double) -> [String]{
+        // 1g = .035oz
+        let oz = grams * 0.035
+        let limitedOz = oz.roundToPlaces(1)
+        let ozString = String(limitedOz)
+        let separatedComponents = Array(ozString.characters)
+        var finalComponents = [String]()
+        
+        for char in separatedComponents{
+            let new = String(char)
+            finalComponents.append(new)
+        }
+        
+        finalComponents.append("oz")
+        
+        return finalComponents
+    }
+
+
+    
     // MARK: - Included
     override func viewDidLoad() {
         super.viewDidLoad()
         self.spiceNameTextField.delegate = self
         self.volumePurchasedTextField.delegate = self
-        volumePicker.delegate = self
-        volumePicker.dataSource = self
-        volumePicker.hidden = true
+        self.brandTextField.delegate = self
         brandTextField.hidden = true
+
+        self.volumePicker.dataSource = self
+        self.volumePicker.delegate = self
         
-        //self.volumePurchasedTextField.inputView = volumePicker
-    
-    }
+        buildInputView()
+        
+        }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -200,22 +257,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        
-        if textField.tag == 1 {
-            spiceNameTextField.resignFirstResponder()
-            volumePicker.hidden = false
-            return false
-        }else{
-            return true
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        textField.resignFirstResponder()
-        volumePicker.hidden = true
     }
 
     
@@ -289,7 +330,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
         }
     }
     
-    
+
     
 }
 //End of Class

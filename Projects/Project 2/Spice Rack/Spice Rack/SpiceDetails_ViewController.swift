@@ -74,6 +74,10 @@ class SpiceDetails_ViewController: UIViewController {
         })
         performSegueWithIdentifier("unwindSegue", sender: nil)
     }
+    func cropDetailImage(){
+
+
+    }
     
     
     
