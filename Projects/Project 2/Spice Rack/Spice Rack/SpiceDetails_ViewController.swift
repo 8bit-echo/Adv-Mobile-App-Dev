@@ -9,9 +9,6 @@
 import UIKit
 import RealmSwift
 
-//http://stackoverflow.com/questions/29569314/passing-value-to-another-viewcontroller-upon-selecting-cell-in-uicollectionview
-
-
 class SpiceDetails_ViewController: UIViewController {
     
     // MARK: - Global Variables
@@ -65,7 +62,6 @@ class SpiceDetails_ViewController: UIViewController {
         self.presentViewController(options, animated: true, completion: nil)
     }
     
-    
     // MARK: - My Functions
     
     func trashAndUnwind(){
@@ -75,11 +71,7 @@ class SpiceDetails_ViewController: UIViewController {
         performSegueWithIdentifier("unwindSegue", sender: nil)
     }
     func cropDetailImage(){
-
-
     }
-    
-    
     
     // MARK: - Included
     override func viewDidLoad() {
@@ -111,8 +103,6 @@ class SpiceDetails_ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

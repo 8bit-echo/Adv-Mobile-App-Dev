@@ -10,10 +10,6 @@ import UIKit
 import RealmSwift
 
 
-//Food2Fork API KEY - 613a0c14db1697aa0f221ea66e1cec08
-// http://stackoverflow.com/questions/26819423/show-uipickerview-text-field-is-selected-then-hide-after-selected
-
-
 class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     // MARK: - Global Variables

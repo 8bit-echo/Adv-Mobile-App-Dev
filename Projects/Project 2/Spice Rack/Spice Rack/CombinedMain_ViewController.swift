@@ -27,23 +27,19 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     var searchResults = [Spice]()
     var sections = [[Spice]]()
     
-    // Interface
+    //MARK: - Interface
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
     
-    //Views
+    // MARK: - Views
     @IBOutlet weak var collectionParent: UIView!
     @IBOutlet weak var tableParent: UIView!
-    //@IBOutlet weak var segmentParent: UIView!
     @IBOutlet weak var segmentBar: UISegmentedControl!
-    
     
     // MARK: - IBActions
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
         readAndUpdate()
-        print("CombinedMainVC readAndUpdate from unwindSegue()")
-        
     }
     @IBAction func doneSegue(segue: UIStoryboardSegue){
     }
@@ -63,7 +59,6 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         }
         readAndUpdate()
         removeDuplicates()
-        print("CombinedMainVC readAndUpdate from segmentSelectionChanged()")
     }
     
     
@@ -83,13 +78,13 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         //TableView Data Source
         sections = [runningLow, allSpices]
         
+        
         removeDuplicates()
         collectionView?.reloadData()
         tableView.reloadData()
     }
     func buildSearchBar(){
         searchController.searchResultsUpdater = self
-        //searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
@@ -104,7 +99,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.peachColor(), NSFontAttributeName: UIFont(name: "GrandHotel-Regular", size: 26)! ]
-      
+        
         if runningLow.isEmpty{
             setCollectionViewBackground("darkshelf")
         }else{
@@ -122,6 +117,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         }
         sections = [runningLow, allSpices]
     }
+    
     
     // MARK: CollectionView Requirements
     
@@ -163,6 +159,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         cell.spiceNameLabel.shadowColor = UIColor.blackColor()
         if spice.percentageRemaining <= 10 {
             cell.spiceNameLabel.textColor = UIColor.redColor()
+            cell.spiceNameLabel.shadowColor = UIColor.whiteColor()
         }
         
         
@@ -182,7 +179,6 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         mask.frame.offsetInPlace(dx: 0.0, dy: CGFloat(imageOffset))
         mask.frame.size = CGSize(width: 93, height: 134)
         
-        
         //this line is needed for the cell size to initalize correctly on the first load of the thread. IDK why...
         cell.layoutIfNeeded()
         return cell
@@ -199,7 +195,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
-    //Mark: - TableView Requirements
+    //MARK: - TableView Requirements
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if searchController.active && searchController.searchBar.text != ""{
@@ -243,8 +239,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
         //Labels
         cell.customTextLabel?.text = spiceName
-        //cell.customTextLabel?.textColor = UIColor.whiteColor()
-        cell.customTextLabel.textColor = UIColor(red: 35, green: 61, blue: 115, alpha: 1)
+        cell.customTextLabel?.textColor = UIColor.whiteColor()
         cell.customDetailTextLabel?.text = "\(Int(percentRemaining))%"
         cell.customDetailTextLabel?.textColor = UIColor.whiteColor()
         
@@ -279,21 +274,25 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         } else{
             spicetoDetail = allSpices[indexPath.row]
         }
+        
+        searchResults = [Spice]()
         performSegueWithIdentifier("showDetails", sender: nil)
+        
     }
     
-    //search
+    //MARK: - Search
     func filterContentForSearchText(searchText : String, scope : String = "All"){
         searchResults = Array(allSpices).filter { spice in
             return spice.name.lowercaseString.containsString(searchText.lowercaseString)}
         tableView.reloadData()
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         readAndUpdate()
         buildSearchBar()
     }
+    
     override func viewWillAppear(animated: Bool) {
         readAndUpdate()
         designUI()
@@ -310,9 +309,6 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
             let showDetailsVC = segue.destinationViewController as! SpiceDetails_ViewController
             showDetailsVC.receivedObject = spicetoDetail
         }
-        
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
     }
     
 }

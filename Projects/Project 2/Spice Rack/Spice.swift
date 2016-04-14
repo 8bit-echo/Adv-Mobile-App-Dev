@@ -17,8 +17,6 @@ class Spice: Object {
     dynamic var volumeRemaining : Double = 0.0
     dynamic var percentageRemaining : Double = 100.0
     
-    
-    
     // Optional
     dynamic var brand : String?
     dynamic var purchaseDate : NSDate?

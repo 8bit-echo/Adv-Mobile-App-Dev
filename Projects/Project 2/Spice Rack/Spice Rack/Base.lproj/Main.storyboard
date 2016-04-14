@@ -576,9 +576,6 @@
                                 <exclude reference="oeN-Ux-3cI"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3PC-Vt-G4k"/>
-                                <exclude reference="DFY-vA-ChL"/>
-                                <exclude reference="RZi-Fc-NYi"/>
                                 <exclude reference="6cd-hg-6yO"/>
                                 <exclude reference="9f7-0j-T4G"/>
                                 <exclude reference="WGL-JX-qgy"/>
@@ -586,6 +583,9 @@
                                 <exclude reference="mhb-nF-zz4"/>
                                 <exclude reference="nDS-4U-Kxw"/>
                                 <exclude reference="tan-MY-d2o"/>
+                                <exclude reference="3PC-Vt-G4k"/>
+                                <exclude reference="DFY-vA-ChL"/>
+                                <exclude reference="RZi-Fc-NYi"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -594,9 +594,6 @@
                                 <include reference="oeN-Ux-3cI"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3PC-Vt-G4k"/>
-                                <include reference="DFY-vA-ChL"/>
-                                <include reference="RZi-Fc-NYi"/>
                                 <include reference="6cd-hg-6yO"/>
                                 <include reference="9f7-0j-T4G"/>
                                 <exclude reference="WGL-JX-qgy"/>
@@ -604,6 +601,9 @@
                                 <include reference="mhb-nF-zz4"/>
                                 <include reference="nDS-4U-Kxw"/>
                                 <exclude reference="tan-MY-d2o"/>
+                                <include reference="3PC-Vt-G4k"/>
+                                <include reference="DFY-vA-ChL"/>
+                                <include reference="RZi-Fc-NYi"/>
                             </mask>
                         </variation>
                     </view>
