@@ -280,6 +280,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    
+    
     //MARK: - Search
     func filterContentForSearchText(searchText : String, scope : String = "All"){
         searchResults = Array(allSpices).filter { spice in
@@ -287,6 +289,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         tableView.reloadData()
     }
     
+    
+    //MARK: - Included
     override func viewDidLoad() {
         super.viewDidLoad()
         readAndUpdate()
@@ -303,6 +307,8 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showDetails" && spicetoDetail != nil) {
@@ -311,7 +317,7 @@ class CombinedMain_ViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-}
+} // End of Class
 
 
 

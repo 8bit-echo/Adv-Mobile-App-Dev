@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Androids</string>
+    <string name="android_logo">Android Logo"</string>
+    <string name="download">"Download This Version"</string>
+
+    <string-array name="android_versions">
+        <item>Jelly Bean</item>
+        <item>Kit-Kat</item>
+        <item>Marshmallow</item>
+
+    </string-array>
+    <string name="title_activity_download">DownloadActivity</string>
+    <string name="title_activity_version">VersionActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+</resources>

@@ -328,7 +328,6 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
     
 
     
-}
-//End of Class
+}//End of Class
 
 
