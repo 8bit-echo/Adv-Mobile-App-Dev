@@ -7,17 +7,42 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 
-public class UniverseListFragment extends Fragment {
+public class UniverseListFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public UniverseListFragment() {
         // Required empty public constructor
     }
+
+    //create interface
+    interface UniverseListListener{
+        void itemClicked(long id);
+    }
+
+    //create listener
+    private UniverseListListener listener;
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        //attaches the context to the listener
+        listener = (UniverseListListener) context;
+
+    }
+
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+        if (listener != null) {
+            //tells the listener an item was clicked
+            listener.itemClicked(id);
+        }
+    }
+
 
 
     @Override
@@ -41,6 +66,8 @@ public class UniverseListFragment extends Fragment {
             ArrayAdapter<Hero> listAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, Hero.heroes);
             //set array adapter on list view
             listUniverse.setAdapter(listAdapter);
+            //attach the listener to the listview
+            listUniverse.setOnItemClickListener(this);
         }
 
         }
