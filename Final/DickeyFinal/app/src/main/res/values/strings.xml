@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DickeyFinal</string>
+    <string-array name="Workouts">
+        <item>Cardio</item>
+        <item>Strength</item>
+        <item>Flexibility</item>
+    </string-array>
+    <string name="addnewButton">Add New</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Final Reference</string>
+    <string name="addButtonText">Add New</string>
+    <string name="addtext_hint">Add New Item</string>
+    <string name="adddialog_title"> This is Le Title</string>
+
+    <string-array name="listItems">
+        <item>Characters</item>
+        <item>Colors</item>
+        <item>Others</item>
+    </string-array>
+</resources>

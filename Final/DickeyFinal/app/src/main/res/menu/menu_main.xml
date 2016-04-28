@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/signUp"
+        android:icon="@drawable/event"
+        android:showAsAction="ifRoom"
+        android:title="Sign Up" />
+</menu>
