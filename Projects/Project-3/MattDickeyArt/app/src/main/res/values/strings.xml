@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Matt Dickey Art</string>
+    <string-array name="Categories">
+        <item>Paintings</item>
+        <item>Drawings</item>
+        <item>Digital</item>
+    </string-array>
+
+
+</resources>

@@ -20,29 +20,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//Create a listener
-        AdapterView.OnItemClickListener myItemClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                //get item name as String
-                String listItemName = (String) parent.getItemAtPosition(position);
-
-                //create new intent
-                Intent goToDetail = new Intent(MainActivity.this, ListDetailActivity.class);
-
-                //add data to pass
-                goToDetail.putExtra("item name", listItemName);
-
-                //start the intent
-                startActivity(goToDetail);
-
-            }
-        };
-
-        //get the listView
-        ListView myListView = (ListView) findViewById(R.id.listView);
-        //attach the listener
-        myListView.setOnItemClickListener(myItemClickListener);
     }
 }
