@@ -14,6 +14,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class CategoryActivity extends Activity implements AdapterView.OnItemClickListener {
@@ -34,17 +36,6 @@ public class CategoryActivity extends Activity implements AdapterView.OnItemClic
         categoryGrid.setAdapter(new ArtGridAdapter(this));
     }
 
-    Art angel = new Art("paintings", R.drawable.painting0 , "Angel");
-    Art anne = new Art("paintings", R.drawable.painting1, "Anne R. Ekcia");
-    Art barbie = new Art("paintings", R.drawable.painting2, "Barbia");
-    Art jasmine = new Art("paintings", R.drawable.painting3, "Jasmine");
-    Art myrtle = new Art("paintings", R.drawable.painting4, "Fertile Myrtle");
-    Art octophant = new Art("paintings", R.drawable.painting5, "Octophant");
-
-    Art[] paintings = {angel,anne,barbie,jasmine,myrtle,octophant};
-
-
-
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,14 +44,14 @@ public class CategoryActivity extends Activity implements AdapterView.OnItemClic
 
 
     class Art {
-        String category;
+
         int imageID;
         String workTitle;
 
 
         // Constructor
-        Art(String category, int imageID, String workTitle) {
-            this.category = category;
+        Art(int imageID, String workTitle) {
+
             this.imageID = imageID;
             this.workTitle = workTitle;
         }
@@ -84,11 +75,52 @@ class ArtGridAdapter extends BaseAdapter {
         this.context = context;
         list = new ArrayList<>();
         Resources res = getResources();
-        String[] tempArtNames = res.getStringArray(R.array.Paintings);
-        int[] artCategoryImages = {R.drawable.painting0, R.drawable.painting1, R.drawable.painting2, R.drawable.painting3, R.drawable.painting4, R.drawable.painting5};
+
+        //Image resource Arrays
+        int[] paintingIDs = {R.drawable.painting0, R.drawable.painting1, R.drawable.painting2, R.drawable.painting3, R.drawable.painting4, R.drawable.painting5};
+        int[] drawingIDs = {R.drawable.drawing0, R.drawable.drawing1, R.drawable.drawing2, R.drawable.drawing3, R.drawable.drawing4, R.drawable.drawing5};
+        int[] digitalIDs = {R.drawable.digital0, R.drawable.digital1, R.drawable.digital2, R.drawable.digital3, R.drawable.digital4, R.drawable.digital5};
+
+        //String Array Resources
+        String[] paintingNames = res.getStringArray(R.array.Paintings);
+        String[] drawingNames = res.getStringArray(R.array.Drawings);
+        String[] digitalNames = res.getStringArray(R.array.Digital);
+
+        //Assignment destinations
+        String[] tempArtNames;
+        int[] artCategoryImages;
+
+//        tempArtNames = tempDrawingNames;
+//        artCategoryImages = drawingIDs;
+
+        TextView currentCategoryTextView = (TextView) findViewById(R.id.categoryNameText);
+        String currentCategory = (String) currentCategoryTextView.getText();
+
+        System.out.println("Grid Adapter returns this as the currentCategory: " + currentCategory);
+
+        switch (currentCategory){
+
+            case "Paintings":
+                tempArtNames = paintingNames;
+                artCategoryImages = paintingIDs;
+                break;
+            case "Drawings":
+                tempArtNames = drawingNames;
+                artCategoryImages = drawingIDs;
+                break;
+            case "Digital":
+                tempArtNames = digitalNames;
+                artCategoryImages = digitalIDs;
+                break;
+            default:
+                tempArtNames = paintingNames;
+                artCategoryImages = paintingIDs;
+                break;
+        }
+
 
         for (int i = 0; i < 6; i++){
-            Art tempArt = new Art("paintings", artCategoryImages[i], tempArtNames[i]);
+            Art tempArt = new Art(artCategoryImages[i], tempArtNames[i]);
             list.add(tempArt);
         }
     }
