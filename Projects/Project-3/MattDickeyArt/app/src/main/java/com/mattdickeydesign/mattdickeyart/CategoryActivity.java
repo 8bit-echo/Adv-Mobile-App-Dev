@@ -14,8 +14,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class CategoryActivity extends Activity implements AdapterView.OnItemClickListener {
@@ -57,6 +55,7 @@ public class CategoryActivity extends Activity implements AdapterView.OnItemClic
 
         int imageID;
         String workTitle;
+        String medium;
 
         // Constructor
         Art(int imageID, String workTitle) {
