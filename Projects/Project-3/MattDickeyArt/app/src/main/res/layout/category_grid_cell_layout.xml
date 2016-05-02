@@ -3,9 +3,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="195dp"
+        android:layout_height="195dp"
         android:id="@+id/gategory_grid_ImageView"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/painting0"/>
+
 </RelativeLayout>

@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,8 +13,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -36,6 +34,18 @@ public class CategoryActivity extends Activity implements AdapterView.OnItemClic
         categoryGrid.setAdapter(new ArtGridAdapter(this));
     }
 
+    Art angel = new Art("paintings", R.drawable.painting0 , "Angel");
+    Art anne = new Art("paintings", R.drawable.painting1, "Anne R. Ekcia");
+    Art barbie = new Art("paintings", R.drawable.painting2, "Barbia");
+    Art jasmine = new Art("paintings", R.drawable.painting3, "Jasmine");
+    Art myrtle = new Art("paintings", R.drawable.painting4, "Fertile Myrtle");
+    Art octophant = new Art("paintings", R.drawable.painting5, "Octophant");
+
+    Art[] paintings = {angel,anne,barbie,jasmine,myrtle,octophant};
+
+
+
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -43,56 +53,79 @@ public class CategoryActivity extends Activity implements AdapterView.OnItemClic
 
 
     class Art {
+        String category;
         int imageID;
         String workTitle;
 
+
         // Constructor
-        Art(int imageID, String workTitle) {
+        Art(String category, int imageID, String workTitle) {
+            this.category = category;
             this.imageID = imageID;
             this.workTitle = workTitle;
         }
+
+
+}
+
+class ArtViewHolder {
+    ImageView myArtImage;
+
+    ArtViewHolder(View v) {
+        myArtImage = (ImageView) v.findViewById(R.id.gategory_grid_ImageView);
+    }
+}
+
+class ArtGridAdapter extends BaseAdapter {
+    ArrayList<Art> list;
+    Context context;
+
+    ArtGridAdapter(Context context) {
+        this.context = context;
+        list = new ArrayList<>();
+        Resources res = getResources();
+        String[] tempArtNames = res.getStringArray(R.array.Paintings);
+        int[] artCategoryImages = {R.drawable.painting0, R.drawable.painting1, R.drawable.painting2, R.drawable.painting3, R.drawable.painting4, R.drawable.painting5};
+
+        for (int i = 0; i < 6; i++){
+            Art tempArt = new Art("paintings", artCategoryImages[i], tempArtNames[i]);
+            list.add(tempArt);
+        }
     }
 
-    class ArtViewHolder {
-        ImageView myArtImage;
-
-        ArtViewHolder(View v) {
-            myArtImage = (ImageView) v.findViewById(R.id.gategory_grid_ImageView);
-        }
+    @Override
+    public int getCount() {
+        return list.size();
     }
 
-    class ArtGridAdapter extends BaseAdapter {
-        ArrayList<Art> list;
-        Context context;
-
-        ArtGridAdapter(Context context) {
-
-
-            //SWITCH STATEMENT WILL GO HERE
-            this.context = context;
-            list = new ArrayList<>();
-            Resources res = getResources();
-            //int[] artCategoryImages = {R.drawable.};
-        }
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
-        }
+    @Override
+    public Object getItem(int position) {
+        return list.get(position);
     }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        View row = convertView;
+        ArtViewHolder holder = null;
+        if (row == null){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row = inflater.inflate(R.layout.category_grid_cell_layout, parent, false);
+            holder = new ArtViewHolder(row);
+            row.setTag(holder);
+        } else {
+            holder = (ArtViewHolder) row.getTag();
+        }
+
+        Art tempArt = list.get(position);
+        holder.myArtImage.setImageResource(tempArt.imageID);
+
+        return row;
+    }
+}
 }

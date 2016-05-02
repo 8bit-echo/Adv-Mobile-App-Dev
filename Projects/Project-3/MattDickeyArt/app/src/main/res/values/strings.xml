@@ -7,12 +7,12 @@
     </string-array>
 
     <string-array name="Paintings">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Angel</item>
+        <item>Anne</item>
+        <item>Barbie</item>
+        <item>Jasmine</item>
+        <item>Myrtle</item>
+        <item>Octophant</item>
     </string-array>
 
     <string-array name="Drawings">
