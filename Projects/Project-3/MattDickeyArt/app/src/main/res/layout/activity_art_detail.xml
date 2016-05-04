@@ -10,8 +10,8 @@
     tools:context="com.mattdickeydesign.mattdickeyart.ArtDetailActivity">
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
         android:id="@+id/detailImageView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

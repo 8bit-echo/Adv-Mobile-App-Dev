@@ -119,7 +119,7 @@ public class ArtDetailActivity extends Activity {
         @Override
         public boolean onScale(ScaleGestureDetector detector){
             scale = scale * detector.getScaleFactor();
-            scale = Math.max(.1f, Math.min(scale,5f));
+            scale = Math.max(.5f, Math.min(scale,5f));
             matrix.setScale(scale, scale);
             detailImageView.setImageMatrix(matrix);
             return  true;
