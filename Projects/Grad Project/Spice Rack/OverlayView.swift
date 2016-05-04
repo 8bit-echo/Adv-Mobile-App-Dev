@@ -1,45 +1,27 @@
 
 import UIKit
 
-/// Custom view that displays when a user adds a Car to the Garage (Saves it locally)
+//http://zappdesigntemplates.com/create-your-own-overlay-view-in-swift/
 class OverlayView: UIView {
     
-    /// Label to show the empty text
+
     @IBOutlet weak var titleLabel: UILabel!
-    /// ImageView that holds the icon
     @IBOutlet weak var emptyIcon: UIImageView!
-    
-    // Our custom view from the XIB file
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     var view: UIView!
     
-    /// Visual effectView for having a blurry background
-    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
-    /**
-     Initialiser method
-     
-     - parameter frame: frame to use for the view
-     */
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
     
-    /**
-     Initialiser method
-     
-     - parameter aDecoder: aDecoder
-     */
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
     }
     
-    /**
-     Loads a view instance from the xib file
-     
-     - returns: loaded view
-     */
+
     func loadViewFromXibFile() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "OverlayView", bundle: bundle)
@@ -47,9 +29,7 @@ class OverlayView: UIView {
         return view
     }
     
-    /**
-     Sets up the view by loading it from the xib file and setting its frame
-     */
+  
     func setupView() {
         view = loadViewFromXibFile()
         view.frame = bounds
@@ -58,7 +38,7 @@ class OverlayView: UIView {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        titleLabel.text = "Saved successfully"
+        titleLabel.text = "Saved to Rack"
         
         view.layer.cornerRadius = 4.0
         view.layer.shadowColor = UIColor.blackColor().CGColor
@@ -69,11 +49,7 @@ class OverlayView: UIView {
         visualEffectView.layer.cornerRadius = 4.0
     }
     
-    /**
-     Displays the overlayView on the passed in view
-     
-     - parameter onView: the view that will display the overlayView
-     */
+
     func displayView(onView: UIView) {
         self.alpha = 0.0
         onView.addSubview(self)
@@ -96,9 +72,7 @@ class OverlayView: UIView {
         }
     }
     
-    /**
-     Updates constraints for the view. Specifies the height and width for the view
-     */
+ 
     override func updateConstraints() {
         super.updateConstraints()
         
@@ -110,9 +84,7 @@ class OverlayView: UIView {
         addConstraint(NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1.0, constant: 0.0))
     }
     
-    /**
-     Hides the view with animation
-     */
+   
     private func hideView() {
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.transform = CGAffineTransformMakeScale(0.1, 0.1)

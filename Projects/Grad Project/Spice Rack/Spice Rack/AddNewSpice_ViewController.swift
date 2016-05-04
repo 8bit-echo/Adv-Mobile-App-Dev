@@ -117,7 +117,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "dill", "dill weed":
                     newSpice.imageName = "dillweed"
                     
-                case "fennel seed":
+                case "fennel seed", "fennel":
                     newSpice.imageName = "fennel-seed"
                     
                 case "oregano", "dill weed", "parsley", "parsley flakes", "thyme", "thyme leaves":
@@ -147,7 +147,7 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 case "salt", "granulated onion", "onion, granulated":
                     newSpice.imageName = "white-crystal"
                 
-                case "star anise":
+                case "star anise", "anise":
                     newSpice.imageName = "star-anise"
                     
                 case "sugar", "garlic salt", "cream of tartar", "ranch powder":
