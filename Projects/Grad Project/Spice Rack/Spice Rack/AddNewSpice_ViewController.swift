@@ -81,6 +81,8 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                 
                 //Handle Spice Image
                 switch newSpice.name.lowercaseString {
+                    case "basil", "basil, ground", "basil, dried", "dried basil", "ground basil", "marjoram":
+                        newSpice.imageName = "basil"
                     
                 case "bay leaves", "bay leaf":
                     newSpice.imageName = "bay-leaves"
@@ -111,6 +113,9 @@ class AddNewSpice_ViewController: UIViewController, UITextFieldDelegate, UIPicke
                     
                 case "italian blend", "italian seasoning", "zesty seasoning blend", "zesty seasoning":
                     newSpice.imageName = "dead-leafy"
+                
+                case "dill", "dill weed":
+                    newSpice.imageName = "dillweed"
                     
                 case "fennel seed":
                     newSpice.imageName = "fennel-seed"
